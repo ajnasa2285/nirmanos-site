@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fffaf4">
 <title>NirmanOS — WhatsApp AI agents for businesses that run on paper, photos and voice</title>
-<meta name="description" content="NirmanOS builds WhatsApp AI agents for brick kiln owners, machine rental owners and contractors across India. Your munshi, machine and site office — now on WhatsApp.">
+<meta name="description" content="NirmanOS is building WhatsApp-first tools for Indian family businesses, including a kiln diary workflow and a separate JCB hours agent. Product readiness varies.">
 <style>
 :root{
   --brick:#9c3d22; --brick-d:#6e2914; --clay:#c8683f; --soil:#5a3e2b;
@@ -115,6 +116,7 @@ header.nav{position:sticky;top:0;z-index:10;background:rgba(255,250,244,.95);bac
 .s-live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#b8f5c9;margin-right:6px;vertical-align:middle;animation:pulse 1.6s infinite}
 @keyframes pulse{50%{opacity:.25}}
 .s-pilot{background:#fbe6c8;color:#8a4a10}
+.s-test{background:#e6edf4;color:#36546e}
 .s-soon{background:#eee6dc;color:var(--muted)}
 .prod h3{font-size:1.3rem}
 .prod .hname{color:var(--brick);font-size:.95rem;margin-bottom:10px}
@@ -169,20 +171,250 @@ footer{background:#2b1d14;color:#cdb9a6;padding:34px 0;font-size:.92rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
 footer b{color:#fff}
 footer a{color:#ffd9b8;text-decoration:none}
+
+/* Motion, responsive navigation and visual polish */
+:root{
+  --brick:#a44325;--brick-d:#762d18;--clay:#d17a4e;
+  --green:#28764a;--green-d:#1d5938;
+  --line:#e7d9c9;--shadow:0 14px 40px rgba(69,45,28,.09);
+  --ease:cubic-bezier(.2,.75,.25,1);
+}
+html{scroll-padding-top:88px}
+body{
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(243,225,204,.28),transparent 48%),
+    var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:#dcebdc;color:var(--green-d)}
+a,button{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible{outline:3px solid #e9a66f;outline-offset:4px}
+.wrap{max-width:1160px;padding-inline:clamp(20px,4vw,42px)}
+section{padding:clamp(72px,9vw,112px) 0;scroll-margin-top:76px}
+.lead{line-height:1.75}
+.scroll-progress{position:fixed;inset:0 0 auto;height:3px;z-index:30;pointer-events:none}
+.scroll-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--green),#80a958,var(--clay));transform:scaleX(0);transform-origin:left}
+
+header.nav{
+  background:rgba(255,250,244,.86);
+  border-bottom-color:rgba(227,212,194,.72);
+  backdrop-filter:blur(16px) saturate(150%);
+  -webkit-backdrop-filter:blur(16px) saturate(150%);
+  transition:box-shadow .25s ease,background .25s ease;
+}
+header.nav.is-scrolled{background:rgba(255,250,244,.96);box-shadow:0 8px 28px rgba(63,43,27,.08)}
+.nav .wrap{height:72px}
+.logo{letter-spacing:-.035em}
+.logo-mark{border-radius:11px;box-shadow:0 5px 12px rgba(156,61,34,.15);transition:transform .35s var(--ease)}
+.logo:hover .logo-mark{transform:rotate(-7deg) scale(1.06)}
+.nav ul{gap:clamp(14px,2vw,26px)}
+.nav ul a{position:relative;padding:8px 0;transition:color .2s ease}
+.nav ul a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:2px;border-radius:2px;background:var(--clay);transition:right .25s var(--ease)}
+.nav ul a:hover::after,.nav ul a[aria-current="location"]::after{right:0}
+.nav ul a[aria-current="location"]{color:var(--brick)}
+.btn{box-shadow:0 5px 14px rgba(48,48,30,.08);transition:transform .22s var(--ease),background .22s ease,box-shadow .22s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(48,48,30,.15)}
+.btn:active{transform:translateY(-1px) scale(.985)}
+.btn-green{background:linear-gradient(135deg,#328454,var(--green))}
+.menu-toggle{display:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 88% 16%,rgba(47,125,79,.14),transparent 34%),
+    radial-gradient(ellipse at 8% 90%,rgba(200,104,63,.09),transparent 38%),
+    linear-gradient(155deg,#f5ecdf 0%,#fffaf4 70%);
+  padding:clamp(70px,9vw,118px) 0 clamp(78px,9vw,112px);
+}
+.hero::before,.hero::after{content:"";position:absolute;z-index:-1;pointer-events:none;border:1px solid rgba(156,61,34,.08);border-radius:50%}
+.hero::before{width:470px;height:470px;right:-180px;top:-190px;box-shadow:0 0 0 42px rgba(156,61,34,.025),0 0 0 84px rgba(156,61,34,.018)}
+.hero::after{width:240px;height:240px;left:-120px;bottom:-150px;box-shadow:0 0 0 25px rgba(47,125,79,.025)}
+.hero .wrap{gap:clamp(36px,7vw,88px)}
+.hero h1{font-size:clamp(2.65rem,6vw,4.7rem);letter-spacing:-.055em;line-height:1.04;max-width:760px}
+.hero h1 em{color:var(--brick);background:linear-gradient(110deg,var(--brick),#c56b40);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .tag{margin-top:20px}
+.hero .sub{font-size:1.02rem;line-height:1.8}
+.pill{box-shadow:inset 0 0 0 1px rgba(47,125,79,.08);letter-spacing:.005em}
+.noapp{line-height:1.8}
+.phone{
+  position:relative;z-index:0;width:min(100%,340px);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 32px 80px rgba(60,35,20,.24),0 8px 24px rgba(60,35,20,.12);
+  animation:phone-float 6s ease-in-out infinite;
+}
+.phone::before{content:"";position:absolute;inset:12% -16% -8%;z-index:-1;background:radial-gradient(ellipse,rgba(47,125,79,.18),transparent 67%);filter:blur(8px)}
+.screen{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.chat-head{background:linear-gradient(115deg,#075e54,#08776a)}
+.avatar{box-shadow:0 0 0 3px rgba(255,255,255,.2)}
+.msg{transition:transform .2s ease}
+.msg:hover{transform:translateY(-2px)}
+.photo{background:repeating-linear-gradient(0deg,#d9cdb5 0 13px,#b9a98a 13px 14px),#e8dcc4}
+@keyframes phone-float{0%,100%{transform:translateY(0) rotate(.4deg)}50%{transform:translateY(-10px) rotate(-.4deg)}}
+@keyframes message-in{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.chat .msg{animation:message-in .55s var(--ease) both}
+.chat .msg:nth-child(1){animation-delay:.25s}.chat .msg:nth-child(2){animation-delay:.48s}
+.chat .msg:nth-child(3){animation-delay:.72s}.chat .msg:nth-child(4){animation-delay:.96s}
+.chat .msg:nth-child(5){animation-delay:1.18s}
+
+.card{
+  border-color:rgba(227,212,194,.88);
+  box-shadow:0 8px 28px rgba(90,62,43,.055);
+  transition:transform .28s var(--ease),box-shadow .28s ease,border-color .28s ease;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(90,62,43,.12);border-color:#d8bda4}
+.problems{background:linear-gradient(180deg,#fff 0%,#fff 92%,#fdf8f1 100%)}
+.prob{border-left:4px solid var(--clay)}
+.prob .ico,.step .ico,.prod .ico,.who-grid .ico{display:inline-grid;place-items:center;filter:drop-shadow(0 5px 5px rgba(80,55,30,.08))}
+.prob h3,.step h3,.prod h3,.who-grid h3{letter-spacing:-.025em}
+.how{background:linear-gradient(180deg,#f5ecdf 0%,#f8f1e8 100%)}
+.step{position:relative;overflow:hidden}
+.step::after{content:"";position:absolute;width:118px;height:118px;right:-44px;bottom:-56px;border-radius:50%;background:rgba(200,104,63,.055);transition:transform .4s var(--ease)}
+.step:hover::after{transform:scale(1.5)}
+.num{box-shadow:0 7px 18px rgba(156,61,34,.2)}
+.princ{box-shadow:0 8px 22px rgba(49,39,28,.1);transition:transform .25s var(--ease)}
+.princ:hover{transform:translateY(-3px)}
+.prod{position:relative;overflow:hidden}
+.prod.featured{border-color:var(--green);box-shadow:0 12px 32px rgba(47,125,79,.11)}
+.prod.featured::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#3e9b60,#b8d58d)}
+.status{letter-spacing:.055em}
+.s-live{box-shadow:0 4px 12px rgba(47,125,79,.18)}
+.u{transition:transform .28s var(--ease),background .28s ease,border-color .28s ease}
+.u:hover{transform:translateY(-4px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+.vs{border:1px solid rgba(255,255,255,.1)}
+.vs tbody tr{transition:background .2s ease}
+.vs tbody tr:hover{background:rgba(255,255,255,.055)}
+.partners{box-shadow:0 10px 28px rgba(90,62,43,.05)}
+.contact{
+  position:relative;isolation:isolate;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 10% 100%,rgba(255,213,175,.15),transparent 42%),
+    linear-gradient(125deg,#87351f,#a44325 55%,#8f371f);
+}
+.contact::before{content:"";position:absolute;z-index:-1;width:440px;height:440px;right:-180px;top:-230px;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 45px rgba(255,255,255,.035),0 0 0 90px rgba(255,255,255,.025)}
+.contact h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.04em}
+.contact .btn{box-shadow:0 8px 24px rgba(35,18,10,.2)}
+footer{border-top:1px solid rgba(255,255,255,.06)}
+footer a{transition:color .2s ease}
+footer a:hover{color:#fff}
+
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.is-visible{opacity:1;transform:translateY(0)}
+.js .reveal[data-delay="1"]{transition-delay:.08s}
+.js .reveal[data-delay="2"]{transition-delay:.16s}
+.js .reveal[data-delay="3"]{transition-delay:.24s}
+
+@media(max-width:879px){
+  .nav .wrap{height:68px}
+  .menu-toggle{
+    display:grid;place-content:center;gap:5px;width:42px;height:42px;
+    border:1px solid var(--line);border-radius:12px;background:#fffaf4;color:var(--soil);
+    cursor:pointer;order:3;
+  }
+  .menu-toggle span:not(.sr-only){display:block;width:18px;height:2px;border-radius:3px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+  .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav ul{
+    display:flex;position:absolute;top:calc(100% + 8px);left:20px;right:20px;
+    flex-direction:column;gap:2px;padding:10px;
+    background:rgba(255,250,244,.98);border:1px solid var(--line);border-radius:18px;
+    box-shadow:0 18px 44px rgba(59,40,25,.16);
+    opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .2s ease,transform .2s ease,visibility .2s;
+  }
+  .nav.nav-open ul{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav ul a{display:block;padding:11px 14px;border-radius:10px}
+  .nav ul a:hover{background:var(--sand)}
+  .nav ul a::after{display:none}
+  .nav .btn{margin-left:auto;margin-right:10px}
+}
+@media(max-width:520px){
+  body{font-size:16px}
+  .wrap{padding-inline:20px}
+  .hero h1{font-size:clamp(2.55rem,12vw,3.55rem)}
+  .hero .tag-hi{font-size:.98rem}
+  .cta-row .btn{width:100%;justify-content:center}
+  .nav .btn{padding:9px 12px;font-size:.83rem}
+  .phone{max-width:320px}
+  .vs{margin-inline:-2px;padding:14px}
+  footer .wrap{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+/* Interactive product preview and exploration controls */
+.demo-stage{
+  width:min(100%,460px);justify-self:center;padding:22px;
+  border:1px solid rgba(227,212,194,.9);border-radius:28px;
+  background:rgba(255,255,255,.72);box-shadow:0 24px 64px rgba(73,49,31,.11);
+  backdrop-filter:blur(12px);
+}
+.demo-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.demo-heading .kicker{margin:0;font-size:.7rem}
+.demo-heading p{font-size:.9rem;color:var(--muted);margin-top:3px}
+.demo-disclaimer{font-size:.68rem;font-weight:800;letter-spacing:.035em;color:#6f5b49;background:#f2e8dc;border-radius:999px;padding:6px 9px;white-space:nowrap}
+.demo-tabs{display:none;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border:1px solid var(--line);border-radius:14px;background:#f5eee5}
+.js .demo-tabs{display:grid}
+.demo-tabs button{min-height:42px;border:0;border-radius:10px;background:transparent;color:var(--muted);font:inherit;font-size:.88rem;font-weight:750;cursor:pointer;transition:background .2s ease,color .2s ease,box-shadow .2s ease}
+.demo-tabs button[aria-selected="true"]{background:#fff;color:var(--green-d);box-shadow:0 3px 10px rgba(70,48,31,.1)}
+.demo-stage .phone{margin-top:14px}
+.demo-stage .chat{max-height:320px;min-height:210px;overflow-y:auto;scrollbar-color:#b4a38e transparent;scrollbar-width:thin}
+#demo-chat .msg{animation-delay:0s}
+#demo-chat .msg.demo-system{background:#f7eee1;color:#755337;border:1px dashed #d9bda0;font-size:.76rem}
+.demo-actions{display:none;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.js .demo-actions{display:grid}
+.demo-actions .btn{width:100%;justify-content:center;padding:11px 10px;font-size:.85rem}
+.demo-actions .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.demo-reset{grid-column:1/-1;justify-self:center;border:0;background:transparent;color:var(--muted);font:inherit;font-size:.82rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px}
+.demo-reset:hover{color:var(--brick)}
+.demo-feedback{min-height:1.4em;margin-top:5px;text-align:center;color:var(--muted);font-size:.75rem;line-height:1.45}
+.product-toolbar{display:none;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 20px;padding:14px 16px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(110deg,#fffaf4,#f7f0e7)}
+.js .product-toolbar{display:flex}
+.filter-label{font-size:.8rem;font-weight:800;color:var(--soil);white-space:nowrap}
+.product-filters{display:flex;gap:7px;flex-wrap:wrap}
+.filter-button{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:999px;background:#fff;color:var(--muted);font:inherit;font-size:.82rem;font-weight:700;padding:8px 12px;cursor:pointer;transition:color .2s ease,background .2s ease,border-color .2s ease,transform .2s ease}
+.filter-button:hover{transform:translateY(-1px);border-color:#d5c0aa}
+.filter-button[aria-pressed="true"]{background:var(--green-d);color:white}
+.filter-button span{display:grid;place-items:center;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:rgba(90,62,43,.08);font-size:.7rem}
+.filter-button[aria-pressed="true"] span{background:rgba(255,255,255,.17)}
+.filter-count{margin-left:auto;color:var(--muted);font-size:.78rem}
+.prod[hidden]{display:none}
+@keyframes product-enter{from{opacity:.55;transform:translateY(10px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+.prod.filter-enter{animation:product-enter .32s var(--ease) both}
+.product-details{margin:0 0 14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}
+.product-details summary{position:relative;list-style:none;padding-right:24px;color:var(--green-d);font-size:.9rem;font-weight:750;cursor:pointer}
+.product-details summary::-webkit-details-marker{display:none}
+.product-details summary::after{content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);font-size:1.25rem;font-weight:500;transition:transform .2s ease}
+.product-details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.product-details p{margin:9px 0 2px;color:var(--muted);font-size:.9rem;line-height:1.65}
+@media(max-width:520px){
+  .demo-stage{padding:16px;border-radius:22px}
+  .demo-disclaimer{font-size:.62rem;padding:5px 7px}
+  .demo-actions{grid-template-columns:1fr}
+  .demo-reset{grid-column:auto}
+  .product-toolbar{align-items:flex-start}
+  .filter-count{width:100%;margin-left:0}
+}
 </style>
 </head>
 <body>
 
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="NirmanOS home"><span class="logo-mark" aria-hidden="true"></span><span>Nirman<b>OS</b></span></a>
-    <ul>
+    <ul id="site-links">
       <li><a href="#problems">Problems</a></li>
       <li><a href="#how">How it works</a></li>
       <li><a href="#products">Products</a></li>
+      <li><a href="#custom">Custom software</a></li>
       <li><a href="#why">Why us</a></li>
       <li><a href="#who">Who it's for</a></li>
     </ul>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-links" aria-expanded="false"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
     <a class="btn btn-green" href="#contact">💬 Talk to us</a>
   </div>
 </header>
@@ -191,29 +423,42 @@ footer a{color:#ffd9b8;text-decoration:none}
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <span class="pill">🟢 Pilots starting in UP · Made for owners across India</span>
+      <span class="pill">🟢 Two distinct product lines · early testing · Uttar Pradesh, India</span>
       <h1>WhatsApp AI agents for businesses that run on <em>paper, photos and voice</em>.</h1>
       <p class="tag">Your munshi, machine and site office — now on WhatsApp.</p>
       <p class="tag-hi hi">आपका मुंशी, मशीन और साइट ऑफिस — अब WhatsApp पर।</p>
-      <p class="sub">You already run your business on WhatsApp, diaries and phone calls. NirmanOS keeps it that way — and quietly turns those photos and voice notes into clean records, daily summaries and alerts.</p>
+      <p class="sub">NirmanOS is building WhatsApp-first tools around the way family businesses already work: diaries, photos, voice notes and phone calls. Each product is at a different stage; current tests turn messages into reviewable drafts, with people in control of what becomes a record.</p>
       <div class="cta-row">
         <a class="btn btn-green" href="#contact">💬 WhatsApp us</a>
         <a class="btn btn-ghost" href="#problems">See the problems we solve</a>
       </div>
-      <p class="noapp">✅ No app to download &nbsp;·&nbsp; ✅ No form to fill &nbsp;·&nbsp; ✅ Your language &amp; dialect OK — as you speak it</p>
+      <p class="noapp">✅ WhatsApp-first workflows &nbsp;·&nbsp; ✅ Hindi input and replies in JCB tests &nbsp;·&nbsp; Wider language and dialect coverage is not yet verified</p>
     </div>
 
-    <div class="phone" aria-label="Example WhatsApp conversation (illustration)">
-      <div class="screen">
-        <div class="chat-head"><div class="avatar">🧱</div><div><b>NirmanOS Agent</b><small>illustrative example</small></div></div>
-        <div class="chat">
-          <div class="msg me"><div class="photo">📒</div>Aaj ka diary page<span class="time">6:42 pm</span></div>
-          <div class="msg me"><div class="voice">▶️ <span class="wave"></span> 0:18</div><span class="time">6:43 pm</span></div>
-          <div class="msg bot sum">Page read ✅ Please check:<br>• Entries found: <b>listed below</b><br>• 1 line unclear — <span class="alert">please confirm</span><br>Reply <b>OK</b> to approve.<span class="time">6:44 pm</span></div>
-          <div class="msg me">OK 👍<span class="time">6:45 pm</span></div>
-          <div class="msg bot"><span class="hi">आज का सारांश तैयार है।</span> Original photo saved, unchanged. 📎<span class="time">6:45 pm</span></div>
+    <div class="demo-stage">
+      <div class="demo-heading">
+        <div><span class="kicker">Try the workflow</span><p>Choose a product, then tap through a sample.</p></div>
+        <span class="demo-disclaimer">Illustrative demo · not live</span>
+      </div>
+      <div class="demo-tabs" role="tablist" aria-label="Choose a product demo">
+        <button type="button" role="tab" id="tab-kiln" aria-selected="true" aria-controls="demo-chat" data-demo="kiln">🧱 Kiln diary</button>
+        <button type="button" role="tab" id="tab-jcb" aria-selected="false" aria-controls="demo-chat" tabindex="-1" data-demo="jcb">🚜 JCB hours</button>
+      </div>
+      <div class="phone" aria-label="Interactive illustrative WhatsApp conversation">
+        <div class="screen">
+          <div class="chat-head"><div class="avatar" id="demo-avatar">🧱</div><div><b>NirmanOS Agent</b><small id="demo-subtitle">Kiln diary · sample conversation</small></div></div>
+          <div class="chat" id="demo-chat" aria-live="polite" aria-relevant="additions text">
+            <div class="msg bot">Send a diary-page photo to start this sample. <span class="time">now</span></div>
+          </div>
         </div>
       </div>
+      <div class="demo-actions">
+        <button type="button" class="btn btn-green" id="demo-send">📷 Send a sample photo</button>
+        <button type="button" class="btn btn-ghost" id="demo-confirm" disabled>Approve the sample</button>
+        <button type="button" class="demo-reset" id="demo-reset">↺ Restart this sample</button>
+      </div>
+      <p class="demo-feedback" id="demo-feedback" role="status">Nothing is sent or saved. This preview runs in your browser.</p>
+      <noscript><p class="demo-feedback">The interactive preview needs JavaScript; this page does not send or save any demo data.</p></noscript>
     </div>
   </div>
 </section>
@@ -237,7 +482,7 @@ footer a{color:#ffd9b8;text-decoration:none}
           <li>When the munshi leaves, the hisaab leaves with him.</li>
         </ul>
         <p class="quote hi">"डायरी में सब लिखा था… पर अब मिल नहीं रही।"</p>
-        <p class="fix">→ Bhatta Munshi keeps a safe digital copy of every page.</p>
+        <p class="fix">→ Bhatta Munshi is being tested as a photo-linked draft and approval workflow.</p>
       </article>
 
       <article class="card prob">
@@ -251,7 +496,7 @@ footer a{color:#ffd9b8;text-decoration:none}
           <li>You only find out at month-end, when it's too late.</li>
         </ul>
         <p class="quote hi">"घंटे कम लिखे गए, डीज़ल ज़्यादा लगा — सबूत कुछ नहीं।"</p>
-        <p class="fix">→ Machine Hours Agent keeps hour-meter photo proof, every day.</p>
+        <p class="fix">→ JCB Hours Agent is being tested with meter photos and owner review.</p>
       </article>
 
       <article class="card prob">
@@ -279,7 +524,7 @@ footer a{color:#ffd9b8;text-decoration:none}
           <li>Every dispute ends with "aapko pata hai na…"</li>
         </ul>
         <p class="quote hi">"भरोसा है, पर सबूत नहीं है।"</p>
-        <p class="fix">→ A clean daily summary + alerts on your phone, with proof.</p>
+        <p class="fix">→ Reviewable daily records, with held or unclear items called out.</p>
       </article>
     </div>
   </div>
@@ -298,16 +543,16 @@ footer a{color:#ffd9b8;text-decoration:none}
         <p>Diary page, hour-meter reading, diesel slip, bill — or just speak in your own language, as you speak it. Send it on WhatsApp like any other message.</p></div>
       <div class="card step"><span class="ico">🔍</span><div class="num">2</div>
         <h3>AI reads it</h3>
-        <p>The agent reads handwriting, numbers and voice, and asks a simple question if anything is unclear. It does not guess.</p></div>
+        <p>AI prepares a draft from the photo or voice note. The workflow asks for a correction or review when needed; a person decides what becomes a record.</p></div>
       <div class="card step"><span class="ico">📊</span><div class="num">3</div>
-        <h3>Owner gets the summary</h3>
-        <p>A clean daily summary on WhatsApp, plus alerts when something looks wrong. You approve — then it becomes the record.</p></div>
+        <h3>Owner reviews the draft</h3>
+        <p>The owner reviews the day's draft and handles anything held or unclear. Scheduled summaries and full-day operation still need validation.</p></div>
     </div>
 
     <div class="principles">
-      <div class="princ"><b>🧮 Code calculates. AI only reads.</b>Totals, hours and balances are worked out by fixed rules in software — not "estimated" by AI.</div>
-      <div class="princ"><b>🗂️ Originals kept unchanged.</b>Every photo and voice note is stored as it was sent. The proof is never edited.</div>
-      <div class="princ"><b>✋ You approve everything.</b>Nothing becomes final, and nothing goes outside, until the owner says OK.</div>
+      <div class="princ"><b>🧮 AI reads. Code calculates.</b>For the JCB agent, software rules calculate hours and commission; Gemini reads the submitted number or words.</div>
+      <div class="princ"><b>🗂️ Source and edits stay distinct.</b>The workflows preserve original media and correction history rather than silently replacing the source.</div>
+      <div class="princ"><b>✋ People approve records.</b>Owner review controls confirmation; held or unclear readings are not silently treated as approved.</div>
     </div>
   </div>
 </section>
@@ -316,39 +561,57 @@ footer a{color:#ffd9b8;text-decoration:none}
 <section id="products">
   <div class="wrap">
     <span class="kicker">Products</span>
-    <h2>One platform. Agents for each kind of work.</h2>
-    <p class="lead">We are early and honest about it. Here is exactly where each product stands today.</p>
+    <h2>Separate agents for different kinds of work.</h2>
+    <p class="lead">Bhatta Munshi and the JCB Hours Agent are separate product lines with separate systems and different readiness. These status notes distinguish builder tests from validated day-to-day use.</p>
+
+    <div class="product-toolbar">
+      <span class="filter-label">Explore by stage</span>
+      <div class="product-filters" role="group" aria-label="Filter product cards by stage">
+        <button type="button" class="filter-button" data-product-filter="all" aria-pressed="true">All products <span>3</span></button>
+        <button type="button" class="filter-button" data-product-filter="testing" aria-pressed="false">In testing <span>2</span></button>
+        <button type="button" class="filter-button" data-product-filter="planned" aria-pressed="false">Planned <span>1</span></button>
+      </div>
+      <p class="filter-count" id="product-count" aria-live="polite">Showing all 3 product lines.</p>
+    </div>
 
     <div class="grid g3">
-      <article class="card prod">
-        <div class="top"><span class="ico">🧱</span><span class="status s-pilot">In pilot</span></div>
+      <article class="card prod" data-stage="testing">
+        <div class="top"><span class="ico">🧱</span><span class="status s-pilot">Pilot build</span></div>
         <h3>Bhatta Munshi</h3>
         <p class="hname hi">भट्ठा मुंशी — ईंट भट्ठे की डायरी</p>
-        <p>A WhatsApp diary agent for brick kilns. The munshi sends diary photos or voice notes; the owner gets a clean, searchable record.</p>
+        <p>A WhatsApp-first kiln diary workflow. A page photo becomes a compact draft for review; corrections are tied to the source and version before a human auditor and owner approve the record.</p>
         <ul>
-          <li>Diary page photos → digital record</li>
-          <li>Voice notes in your own language — designed to work in all Indian native languages and most dialects, as spoken</li>
-          <li>Daily summary for the owner</li>
-          <li>Original pages kept safe</li>
+          <li>Diary photo → draft in the originating chat</li>
+          <li>Source-bound corrections and version-specific confirmation</li>
+          <li>Human review before owner approval</li>
+          <li>Original source and correction history retained</li>
         </ul>
-        <p class="foot">Phase 1 · being piloted at our own kiln first.</p>
+        <details class="product-details">
+          <summary>Explore the kiln workflow</summary>
+          <p>Photo → compact draft → source-linked corrections → human review → owner approval. The latest repair candidate still awaits independent recheck and hosted activation.</p>
+        </details>
+        <p class="foot">Latest WA-1–WA-7 repairs are builder-tested only. Independent recheck and hosted activation are not established.</p>
       </article>
 
-      <article class="card prod featured">
-        <div class="top"><span class="ico">🚜</span><span class="status s-live">Live pilot</span></div>
-        <h3>Machine Hours Agent</h3>
-        <p class="hname hi">मशीन घंटा हिसाब — JCB, पोकलेन, लोडर, ट्रैक्टर</p>
-        <p>Rental tracking for JCB, poclain, loader and tractor owners. Proof of every working hour and every litre of diesel.</p>
+      <article class="card prod featured" data-stage="testing">
+        <div class="top"><span class="ico">🚜</span><span class="status s-test">Live message tests</span></div>
+        <h3>JCB Hours Agent</h3>
+        <p class="hname hi">मशीन घंटे का हिसाब — मालिक और ऑपरेटर</p>
+        <p>A separate construction-machine product with its own AWS stack. Operators send meter photos, diesel slips or Hindi voice notes. The designed flow prepares the previous day's activity for owner review; scheduled delivery and approval in real operation remain unvalidated.</p>
         <ul>
-          <li>Operator sends hour-meter photos on WhatsApp</li>
-          <li>Diesel check against hours worked</li>
-          <li>Daily owner summary + alerts</li>
-          <li class="later">Broker / client billing — later</li>
+          <li>Meter-photo routing exercised in builder-run WhatsApp tests</li>
+          <li>Original photos and voice notes kept unchanged</li>
+          <li>Diesel-slip follow-up and held-reading alerts in the workflow</li>
+          <li>Broker report of confirmed hours and commission — test stage</li>
         </ul>
-        <p class="foot">Live at one site from October 2026.</p>
+        <details class="product-details">
+          <summary>Explore the machine workflow</summary>
+          <p>Operator sends a meter photo or voice note → software checks the reading and continuity → unusual readings are held for owner review → confirmed hours can feed a broker's limited report. The broker flow and a full operator workday have not been validated in live use.</p>
+        </details>
+        <p class="foot">Builder-run message tests only: no full operator workday, recurring 08:00 summary, or real broker use is established; Meta template approval is unconfirmed. Other meter types are synthetic-test scope only.</p>
       </article>
 
-      <article class="card prod">
+      <article class="card prod" data-stage="planned">
         <div class="top"><span class="ico">🏗️</span><span class="status s-soon">Coming soon</span></div>
         <h3>Contractor Site Office</h3>
         <p class="hname hi">ठेकेदार साइट ऑफिस</p>
@@ -359,9 +622,31 @@ footer a{color:#ffd9b8;text-decoration:none}
           <li class="later">Role-based access for the team</li>
           <li class="later">Owner approval for every payment</li>
         </ul>
-        <p class="foot">Planned after the current pilots.</p>
+        <details class="product-details">
+          <summary>Explore planned roles</summary>
+          <p>Owner, supervisor, munshi and accounts would each have a defined role for capturing expenses, receipts, labour and materials. This product is planned, not available for live use.</p>
+        </details>
+        <p class="foot">Planned after the current product testing.</p>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- CUSTOM SOFTWARE -->
+<section class="how" id="custom">
+  <div class="wrap">
+    <span class="kicker">Custom software</span>
+    <h2>Need something for your own business? We build that too.</h2>
+    <p class="lead">The same team that builds our own products can build custom software for individuals and business owners anywhere in India or abroad, at reasonable rates. <span class="hi">आपके काम के हिसाब से, आपकी भाषा में।</span></p>
+    <div class="grid g3">
+      <div class="card step"><div class="ico">💬</div><h3>WhatsApp agents</h3><p>Bots that take photos, voice notes and messages from your team or customers and turn them into clean records, reminders and reports.</p></div>
+      <div class="card step"><div class="ico">📊</div><h3>Business tools</h3><p>Billing, stock, attendance, ledgers, dashboards and simple web or mobile apps, made for how your business really works.</p></div>
+      <div class="card step"><div class="ico">🤖</div><h3>AI automation</h3><p>Reading bills, diaries, meters and documents, and automating the repetitive work that eats your day.</p></div>
+    </div>
+    <div class="cta-row" style="margin-top:28px">
+      <a class="btn btn-green" href="https://wa.me/919140651230?text=Namaste%20NirmanOS%2C%20I%20need%20custom%20software" target="_blank" rel="noopener">💬 Tell us what you need</a>
+    </div>
+    <p class="lead" style="margin-top:14px;font-size:.95rem">Clear quote before we start. We build in small steps so you see working software early.</p>
   </div>
 </section>
 
@@ -369,26 +654,26 @@ footer a{color:#ffd9b8;text-decoration:none}
 <section class="unique" id="why">
   <div class="wrap">
     <span class="kicker">Why NirmanOS is different</span>
-    <h2>Built for how Bharat actually works.</h2>
-    <p class="lead">Most business software expects people to type into forms. Our users send photos and voice notes. So we built for that.</p>
+    <h2>Built around the work, with clear human checks.</h2>
+    <p class="lead">These early workflows start with WhatsApp photos and voice notes, then separate reading, rule-based calculations and human approval instead of treating an AI response as a finished ledger entry.</p>
 
     <div class="grid g3">
-      <div class="u"><div class="ico">💬</div><h3>Works on WhatsApp</h3><p>No new app, no login, no training. If they can send a WhatsApp, they can use NirmanOS.</p></div>
-      <div class="u"><div class="ico">🎙️</div><h3>Voice + photo first</h3><p>Designed for low-literacy users. Speak or click a photo — no typing needed.</p></div>
-      <div class="u"><div class="ico"><span class="hi" style="font-weight:800">अ</span></div><h3>Your language, your dialect</h3><p>Designed to work in all Indian native languages and most dialects — talk the way you talk at the site, in your language as spoken. <span class="hi">"आज 8 घंटे चली"</span> works fine.</p></div>
-      <div class="u"><div class="ico">✋</div><h3>Owner approves everything</h3><p>A human — the owner — is always in control. The AI suggests; you decide.</p></div>
-      <div class="u"><div class="ico">📷</div><h3>Evidence stays original</h3><p>Photos and voice notes are never edited. When there's a dispute, the original proof is there.</p></div>
-      <div class="u"><div class="ico">🔒</div><h3>Private by default</h3><p>Internal records stay with you. Only the approved bill or hours are shared outside.</p></div>
+      <div class="u"><div class="ico">💬</div><h3>WhatsApp-first</h3><p>No separate staff app is central to the pilot workflow. Access and onboarding still depend on each product's rollout.</p></div>
+      <div class="u"><div class="ico">🎙️</div><h3>Voice + photo input</h3><p>Current tests use meter and diary photos, diesel slips and voice notes; quality and coverage vary by workflow.</p></div>
+      <div class="u"><div class="ico"><span class="hi" style="font-weight:800">अ</span></div><h3>Hindi-first testing</h3><p>Hindi voice input and Hindi owner replies are part of the JCB workflow. Wider language and dialect coverage has not been verified.</p></div>
+      <div class="u"><div class="ico">✋</div><h3>People control approval</h3><p>AI can read and suggest; software applies the product rules, and the owner decides what is confirmed.</p></div>
+      <div class="u"><div class="ico">📷</div><h3>Originals stay separate</h3><p>Source photos or voice notes are preserved separately from later corrections and review history.</p></div>
+      <div class="u"><div class="ico">🔒</div><h3>Role-based visibility</h3><p>The JCB broker design limits reports to that broker's confirmed site hours and commission; real broker use has not yet been tested.</p></div>
     </div>
 
     <div class="vs">
       <table>
-        <thead><tr><th></th><th>Usual way</th><th>With NirmanOS</th></tr></thead>
+        <thead><tr><th></th><th>Usual way</th><th>NirmanOS workflow (in testing)</th></tr></thead>
         <tbody>
           <tr><td>Record</td><td>Paper diary, one copy</td><td>Diary photo + clean digital copy</td></tr>
-          <tr><td>Machine hours</td><td>Verbal, argued later</td><td>Hour-meter photo every day</td></tr>
-          <tr><td>Proof</td><td>"Bharosa"</td><td>Original photo, unchanged</td></tr>
-          <tr><td>Owner view</td><td>Phone calls</td><td>Daily summary + alerts on WhatsApp</td></tr>
+          <tr><td>Machine hours</td><td>Verbal, argued later</td><td>Meter-photo workflow under live message testing</td></tr>
+          <tr><td>Proof</td><td>"Bharosa"</td><td>Original media kept separate from edits</td></tr>
+          <tr><td>Owner view</td><td>Phone calls</td><td>Previous-day summary and review flow in testing</td></tr>
           <tr><td>New software</td><td>Apps nobody opens</td><td>Just WhatsApp</td></tr>
         </tbody>
       </table>
@@ -400,20 +685,20 @@ footer a{color:#ffd9b8;text-decoration:none}
 <section id="who">
   <div class="wrap">
     <span class="kicker">Who it's for</span>
-    <h2>Made for owners across India.</h2>
+    <h2>Designed for Indian family businesses.</h2>
     <p class="lead">If your business runs on a diary, a phone and trust — this is for you.</p>
 
     <div class="grid g3 who-grid">
       <div class="card"><div class="ico">🧱</div><h3>Brick kiln owners</h3><span class="hi">ईंट भट्ठा मालिक</span><p>Keep the munshi's diary safe, readable and in your phone.</p></div>
-      <div class="card"><div class="ico">🚜</div><h3>Machine rental owners</h3><span class="hi">JCB / पोकलेन / ट्रैक्टर मालिक</span><p>Get paid for every hour your machine works. Watch diesel.</p></div>
+      <div class="card"><div class="ico">🚜</div><h3>Machine rental owners</h3><span class="hi">JCB / मशीन मालिक</span><p>Review meter readings, diesel entries and work summaries in the workflow under test.</p></div>
       <div class="card"><div class="ico">👷</div><h3>Contractors</h3><span class="hi">ठेकेदार</span><p>One place for site money, receipts and daily work.</p></div>
     </div>
 
-    <p class="area"><span>📍 Across India</span><span>📍 Pilots starting in UP</span><span>📍 Your language &amp; dialect</span></p>
+    <p class="area"><span>📍 Ayodhya, Uttar Pradesh roots</span><span>📍 Hindi input and replies in JCB tests</span><span>📍 Separate products, different readiness</span></p>
 
     <div class="partners">
       <h3>🤝 Partners &amp; investors</h3>
-      <p>NirmanOS is an early-stage company building WhatsApp-native tools for small businesses in rural India, starting with real pilots on the ground in UP. If you'd like to partner, pilot, or learn more, we'd be glad to talk.</p>
+      <p>NirmanOS is an early-stage effort building WhatsApp-native tools for Indian family businesses. The kiln and construction-machine products are separate; readiness and validation differ by product. If you'd like to discuss a carefully scoped test or partnership, we'd be glad to talk.</p>
     </div>
   </div>
 </section>
@@ -425,19 +710,221 @@ footer a{color:#ffd9b8;text-decoration:none}
     <p class="lead">Tell us about your kiln, machine or site. <span class="hi">बात कीजिए — अपनी भाषा में, जैसे आप बोलते हैं।</span></p>
     <div class="cta-row">
       <a class="btn btn-green" href="https://wa.me/919140651230?text=Namaste%20NirmanOS%2C%20I%20want%20to%20know%20more" target="_blank" rel="noopener">💬 WhatsApp us</a>
-      <!-- TO CONFIRM: hello@nirman-os.in mailbox is set up in GoDaddy -->
-      <a class="btn btn-ghost" href="mailto:hello@nirman-os.in">✉️ hello@nirman-os.in</a>
+        <a class="btn btn-ghost" href="mailto:anuj@nirman-os.in">✉️ anuj@nirman-os.in</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div><b>NirmanOS Enterprises</b><br>Udyam: UDYAM-UP-24-0062987<br>101, Anuj Bhawan, Kumarganj, Milkipur, Ayodhya, Uttar Pradesh 224229, India</div>
-    <div><a href="https://nirman-os.in">nirman-os.in</a> · <a href="mailto:hello@nirman-os.in">hello@nirman-os.in</a></div>
+    <div><b>NirmanOS</b><!-- add "NirmanOS (OPC) Private Limited" and CIN after incorporation --><br>NirmanOS Enterprises<br>Udyam: UDYAM-UP-24-0062987<br>101, Anuj Bhawan, Kumarganj, Milkipur, Ayodhya, Uttar Pradesh 224229, India</div>
+    <div><a href="https://nirman-os.in">nirman-os.in</a> · <a href="mailto:anuj@nirman-os.in">anuj@nirman-os.in</a> · <a href="privacy.html">Privacy Policy</a></div>
     <div>© <span id="y">2026</span> NirmanOS. Made in India 🇮🇳</div>
   </div>
 </footer>
 
+<script>
+(() => {
+  const root = document.documentElement;
+  root.classList.add('js');
+
+  const nav = document.querySelector('.nav');
+  const menuButton = document.querySelector('.menu-toggle');
+  const progress = document.querySelector('.scroll-progress span');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const demoChat = document.getElementById('demo-chat');
+  const demoAvatar = document.getElementById('demo-avatar');
+  const demoSubtitle = document.getElementById('demo-subtitle');
+  const demoSend = document.getElementById('demo-send');
+  const demoConfirm = document.getElementById('demo-confirm');
+  const demoReset = document.getElementById('demo-reset');
+  const demoFeedback = document.getElementById('demo-feedback');
+  const demoTabs = [...document.querySelectorAll('[data-demo]')];
+  const demos = {
+    kiln: {
+      avatar: '🧱',
+      subtitle: 'Kiln diary · sample conversation',
+      welcome: 'Munshi: Send a diary-page photo to start.',
+      outgoing: 'Diary-page photo · sample',
+      draft: 'Draft prepared. One line needs checking; review the source and correction before owner approval.',
+      confirm: 'Approve reviewed sample',
+      final: 'Sample marked approved in this preview. No financial record was created.'
+    },
+    jcb: {
+      avatar: '🚜',
+      subtitle: 'JCB hours · sample conversation',
+      welcome: 'Operator: Send a meter photo. Name the machine if needed.',
+      outgoing: 'Meter photo · sample machine',
+      draft: 'Reading needs owner review. Unusual readings can be held in the real workflow. This sample uses no real machine data.',
+      confirm: 'Confirm sample reading',
+      final: 'Sample marked confirmed in this preview. No account, operator, or machine data was changed.'
+    }
+  };
+  let activeDemo = 'kiln';
+  let demoHasDraft = false;
+
+  const addDemoMessage = (side, message, image) => {
+    const bubble = document.createElement('div');
+    bubble.className = `msg ${side}`;
+    if (image) {
+      const imageTile = document.createElement('div');
+      imageTile.className = 'photo';
+      imageTile.setAttribute('aria-hidden', 'true');
+      imageTile.textContent = image;
+      bubble.appendChild(imageTile);
+    }
+    const text = document.createElement('span');
+    text.textContent = message;
+    bubble.appendChild(text);
+    const time = document.createElement('span');
+    time.className = 'time';
+    time.textContent = 'demo';
+    bubble.appendChild(time);
+    demoChat.appendChild(bubble);
+    demoChat.scrollTop = demoChat.scrollHeight;
+  };
+
+  const resetDemo = () => {
+    const demo = demos[activeDemo];
+    demoChat.replaceChildren();
+    demoAvatar.textContent = demo.avatar;
+    demoSubtitle.textContent = demo.subtitle;
+    addDemoMessage('bot', demo.welcome);
+    demoSend.textContent = activeDemo === 'kiln' ? '📷 Send a diary photo' : '📷 Send a meter photo';
+    demoConfirm.textContent = demo.confirm;
+    demoSend.disabled = false;
+    demoConfirm.disabled = true;
+    demoHasDraft = false;
+    demoFeedback.textContent = 'Simulated in your browser. No WhatsApp message is sent.';
+  };
+
+  demoTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      activeDemo = tab.dataset.demo;
+      demoTabs.forEach(item => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      resetDemo();
+    });
+    tab.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault();
+      const next = demoTabs[(index + (event.key === 'ArrowRight' ? 1 : -1) + demoTabs.length) % demoTabs.length];
+      next.focus();
+      next.click();
+    });
+  });
+  demoSend.addEventListener('click', () => {
+    if (demoHasDraft) return;
+    const demo = demos[activeDemo];
+    addDemoMessage('me', demo.outgoing, activeDemo === 'kiln' ? '📒' : '⏱️');
+    addDemoMessage('bot', demo.draft);
+    demoHasDraft = true;
+    demoSend.disabled = true;
+    demoConfirm.disabled = false;
+    demoFeedback.textContent = 'A sample draft is ready. Review, then approve it to finish the preview.';
+  });
+  demoConfirm.addEventListener('click', () => {
+    if (!demoHasDraft) return;
+    addDemoMessage('me', demos[activeDemo].confirm);
+    addDemoMessage('bot', demos[activeDemo].final);
+    demoConfirm.disabled = true;
+    demoFeedback.textContent = 'Preview complete. No data was sent or saved.';
+  });
+  demoReset.addEventListener('click', resetDemo);
+  resetDemo();
+
+  const productFilters = [...document.querySelectorAll('[data-product-filter]')];
+  const productCards = [...document.querySelectorAll('#products .prod')];
+  const productCount = document.getElementById('product-count');
+  productFilters.forEach(filterButton => {
+    filterButton.addEventListener('click', () => {
+      const filter = filterButton.dataset.productFilter;
+      let visibleCount = 0;
+      productFilters.forEach(button => button.setAttribute('aria-pressed', String(button === filterButton)));
+      productCards.forEach(card => {
+        const show = filter === 'all' || card.dataset.stage === filter;
+        card.hidden = !show;
+        if (show) {
+          visibleCount += 1;
+          card.classList.remove('filter-enter');
+          void card.offsetWidth;
+          card.classList.add('filter-enter');
+        } else {
+          card.classList.remove('filter-enter');
+        }
+      });
+      const stageName = filter === 'testing' ? 'in testing' : filter === 'planned' ? 'planned' : '';
+      productCount.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'product' : 'products'}${stageName ? ` ${stageName}` : ''}.`;
+    });
+  });
+
+  const closeMenu = () => {
+    nav.classList.remove('nav-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open navigation');
+  };
+  menuButton.addEventListener('click', () => {
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+    nav.classList.toggle('nav-open', !isOpen);
+  });
+  document.querySelectorAll('#site-links a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  const updateScroll = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = `scaleX(${maxScroll > 0 ? window.scrollY / maxScroll : 0})`;
+    nav.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+  updateScroll();
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  window.addEventListener('resize', updateScroll, { passive: true });
+
+  const revealTargets = document.querySelectorAll(
+    '.hero .wrap > div, section .wrap > .kicker, section .wrap > h2, section .wrap > .lead, section .wrap > .grid > *, section .wrap > .principles > *, section .wrap > .vs, section .wrap > .area, section .wrap > .partners'
+  );
+  revealTargets.forEach((element, index) => {
+    element.classList.add('reveal');
+    if (element.parentElement.classList.contains('grid') || element.parentElement.classList.contains('principles')) {
+      element.dataset.delay = String((index % 3) + 1);
+    }
+  });
+
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+    revealTargets.forEach(element => observer.observe(element));
+  } else {
+    revealTargets.forEach(element => element.classList.add('is-visible'));
+  }
+
+  const sections = [...document.querySelectorAll('main section, body > section')];
+  const navLinks = [...document.querySelectorAll('#site-links a')];
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+    sections.forEach(section => sectionObserver.observe(section));
+  }
+})();
+</script>
 </body>
 </html>
