@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NirmanOS — WhatsApp AI agents for businesses that run on paper, photos and voice</title>
+<meta name="description" content="NirmanOS builds WhatsApp AI agents for brick kiln owners, machine rental owners and contractors across India. Your munshi, machine and site office — now on WhatsApp.">
+<style>
+:root{
+  --brick:#9c3d22; --brick-d:#6e2914; --clay:#c8683f; --soil:#5a3e2b;
+  --sand:#f6efe6; --sand-2:#efe3d3; --cream:#fffaf4;
+  --green:#2f7d4f; --green-d:#1f5c38; --green-l:#e3f1e7;
+  --ink:#2b211a; --muted:#6b5a4c; --line:#e3d4c2;
+  --radius:16px; --shadow:0 6px 24px rgba(90,62,43,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Devanagari","Mangal",sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
+.hi{font-family:"Noto Sans Devanagari","Mangal","Nirmala UI",system-ui,sans-serif;line-height:1.75}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h1,h2,h3{line-height:1.2;color:var(--soil)}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem);margin-bottom:10px}
+.kicker{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brick);margin-bottom:8px}
+.lead{color:var(--muted);max-width:680px;margin-bottom:32px}
+.grid{display:grid;gap:18px}
+@media(min-width:700px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-d)}
+.btn-ghost{border:2px solid var(--brick);color:var(--brick);background:transparent}
+.btn-ghost:hover{background:var(--brick);color:#fff}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:10;background:rgba(255,250,244,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;color:var(--soil);text-decoration:none}
+.logo-mark{width:34px;height:34px;border-radius:9px;background:
+ linear-gradient(var(--brick),var(--brick)) 0 0/48% 30% no-repeat,
+ linear-gradient(var(--clay),var(--clay)) 100% 0/48% 30% no-repeat,
+ linear-gradient(var(--clay),var(--clay)) 0 50%/30% 30% no-repeat,
+ linear-gradient(var(--brick),var(--brick)) 100% 50%/66% 30% no-repeat,
+ linear-gradient(var(--green),var(--green)) 0 100%/100% 30% no-repeat;}
+.logo span b{color:var(--green)}
+.nav ul{display:none;list-style:none;gap:22px;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--muted);font-weight:600}
+.nav ul a:hover{color:var(--brick)}
+@media(min-width:880px){.nav ul{display:flex}}
+.nav .btn{padding:9px 16px;font-size:.9rem}
+
+/* hero */
+.hero{background:
+  radial-gradient(circle at 85% 10%,rgba(47,125,79,.12),transparent 40%),
+  linear-gradient(180deg,var(--sand),var(--cream));padding:56px 0 64px}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.15fr .85fr}}
+.pill{display:inline-flex;gap:8px;align-items:center;background:var(--green-l);color:var(--green-d);font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--brick)}
+.hero .tag{font-size:clamp(1.1rem,2.6vw,1.35rem);font-weight:600;color:var(--soil);margin-bottom:8px}
+.hero .tag-hi{color:var(--muted);margin-bottom:22px}
+.hero p.sub{color:var(--muted);margin-bottom:26px;max-width:560px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.noapp{margin-top:18px;font-size:.92rem;color:var(--muted)}
+/* phone mock */
+.phone{max-width:340px;margin:0 auto;background:#1d1a17;border-radius:34px;padding:12px;box-shadow:0 20px 50px rgba(60,35,20,.28)}
+.screen{background:#ece5dd;border-radius:24px;overflow:hidden}
+.chat-head{background:#075e54;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:.9rem}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--brick);display:grid;place-items:center;font-size:1rem}
+.chat-head small{display:block;opacity:.8;font-size:.72rem}
+.chat{padding:14px 10px;display:flex;flex-direction:column;gap:8px;font-size:.84rem;line-height:1.4}
+.msg{max-width:84%;padding:8px 10px;border-radius:10px;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.me{align-self:flex-end;background:#dcf8c6;border-top-right-radius:2px}
+.bot{align-self:flex-start;background:#fff;border-top-left-radius:2px}
+.photo{width:150px;height:88px;border-radius:8px;margin-bottom:4px;background:
+ repeating-linear-gradient(0deg,#d9cdb5 0 13px,#b9a98a 13px 14px),#e8dcc4;display:grid;place-items:center;font-size:1.6rem}
+.voice{display:flex;align-items:center;gap:6px}
+.wave{flex:1;height:14px;background:repeating-linear-gradient(90deg,#7aa86f 0 3px,transparent 3px 6px);border-radius:3px;min-width:110px}
+.time{display:block;text-align:right;font-size:.66rem;color:#8a8a8a;margin-top:2px}
+.sum b{color:var(--green-d)}
+.alert{color:var(--brick);font-weight:600}
+
+/* problems */
+.problems{background:#fff}
+.prob{position:relative;padding-top:28px;border-left:5px solid var(--clay)}
+.prob .ico{font-size:2rem;margin-bottom:8px}
+.prob h3{font-size:1.2rem;margin-bottom:4px}
+.prob .who{font-size:.8rem;font-weight:700;color:var(--brick);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.prob ul{list-style:none;color:var(--muted)}
+.prob li{padding-left:22px;position:relative;margin-bottom:6px}
+.prob li::before{content:"✗";position:absolute;left:0;color:var(--brick);font-weight:700}
+.prob .quote{margin-top:12px;background:var(--sand);border-radius:10px;padding:10px 12px;font-size:.95rem;color:var(--soil)}
+.prob .fix{margin-top:12px;font-size:.92rem;color:var(--green-d);font-weight:600}
+
+/* how */
+.how{background:var(--sand)}
+.step{text-align:left}
+.num{width:44px;height:44px;border-radius:50%;background:var(--brick);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.2rem;margin-bottom:14px}
+.step .ico{font-size:1.8rem;float:right}
+.step h3{margin-bottom:6px}
+.step p{color:var(--muted)}
+.principles{margin-top:26px;display:grid;gap:12px}
+@media(min-width:700px){.principles{grid-template-columns:repeat(3,1fr)}}
+.princ{background:var(--soil);color:#fff;border-radius:12px;padding:16px 18px;font-size:.95rem}
+.princ b{display:block;color:#ffd9b8;margin-bottom:4px;font-size:1rem}
+
+/* products */
+.prod{display:flex;flex-direction:column}
+.prod .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+.prod .ico{font-size:2.3rem}
+.status{font-size:.75rem;font-weight:800;padding:5px 10px;border-radius:999px;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+.s-live{background:var(--green);color:#fff}
+.s-live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#b8f5c9;margin-right:6px;vertical-align:middle;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.s-pilot{background:#fbe6c8;color:#8a4a10}
+.s-soon{background:#eee6dc;color:var(--muted)}
+.prod h3{font-size:1.3rem}
+.prod .hname{color:var(--brick);font-size:.95rem;margin-bottom:10px}
+.prod p{color:var(--muted);margin-bottom:12px}
+.prod ul{list-style:none;margin-bottom:14px}
+.prod li{padding-left:24px;position:relative;margin-bottom:6px;font-size:.95rem}
+.prod li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.prod li.later::before{content:"…";color:var(--muted)}
+.prod li.later{color:var(--muted)}
+.prod .foot{margin-top:auto;font-size:.85rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+.prod.featured{border:2px solid var(--green)}
+
+/* unique */
+.unique{background:linear-gradient(160deg,var(--green-d),#245e3d);color:#fff}
+.unique h2,.unique .kicker{color:#fff}
+.unique .kicker{opacity:.8}
+.unique .lead{color:#d6eadc}
+.u{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:22px}
+.u .ico{font-size:1.8rem;margin-bottom:8px}
+.u h3{color:#fff;font-size:1.1rem;margin-bottom:6px}
+.u p{color:#d6eadc;font-size:.95rem}
+.vs{margin-top:28px;background:rgba(0,0,0,.18);border-radius:var(--radius);padding:20px;overflow-x:auto}
+.vs table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+.vs th,.vs td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.14)}
+.vs th{color:#ffd9b8}
+.vs td:last-child{color:#c9f2d5;font-weight:600}
+
+/* who */
+.who-grid .card{text-align:center}
+.who-grid .ico{font-size:2.6rem;margin-bottom:8px}
+.who-grid h3{margin-bottom:4px}
+.who-grid .hi{color:var(--brick);margin-bottom:8px;display:block}
+.who-grid p{color:var(--muted);font-size:.95rem}
+.area{margin-top:24px;text-align:center;color:var(--soil);font-weight:600}
+.area span{display:inline-block;background:var(--sand-2);border-radius:999px;padding:6px 14px;margin:4px;font-size:.92rem}
+.partners{margin-top:28px;background:var(--sand);border-radius:var(--radius);padding:22px;border:1px dashed var(--clay)}
+.partners h3{margin-bottom:6px}
+.partners p{color:var(--muted)}
+
+/* contact */
+.contact{background:var(--brick);color:#fff;text-align:center}
+.contact h2{color:#fff}
+.contact .lead{color:#f6d8c8;margin:0 auto 26px}
+.contact .btn-green{background:#25a35a}
+.contact .btn-ghost{border-color:#fff;color:#fff}
+.contact .btn-ghost:hover{background:#fff;color:var(--brick)}
+.contact .cta-row{justify-content:center}
+.ph{font-size:.8rem;color:#f6d8c8;margin-top:16px}
+.ph code{background:rgba(0,0,0,.2);padding:2px 6px;border-radius:5px}
+
+footer{background:#2b1d14;color:#cdb9a6;padding:34px 0;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer b{color:#fff}
+footer a{color:#ffd9b8;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="NirmanOS home"><span class="logo-mark" aria-hidden="true"></span><span>Nirman<b>OS</b></span></a>
+    <ul>
+      <li><a href="#problems">Problems</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why us</a></li>
+      <li><a href="#who">Who it's for</a></li>
+    </ul>
+    <a class="btn btn-green" href="#contact">💬 Talk to us</a>
+  </div>
+</header>
+
+<!-- 1. HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="pill">🟢 Pilots starting in UP · Made for owners across India</span>
+      <h1>WhatsApp AI agents for businesses that run on <em>paper, photos and voice</em>.</h1>
+      <p class="tag">Your munshi, machine and site office — now on WhatsApp.</p>
+      <p class="tag-hi hi">आपका मुंशी, मशीन और साइट ऑफिस — अब WhatsApp पर।</p>
+      <p class="sub">You already run your business on WhatsApp, diaries and phone calls. NirmanOS keeps it that way — and quietly turns those photos and voice notes into clean records, daily summaries and alerts.</p>
+      <div class="cta-row">
+        <a class="btn btn-green" href="#contact">💬 WhatsApp us</a>
+        <a class="btn btn-ghost" href="#problems">See the problems we solve</a>
+      </div>
+      <p class="noapp">✅ No app to download &nbsp;·&nbsp; ✅ No form to fill &nbsp;·&nbsp; ✅ Your language &amp; dialect OK — as you speak it</p>
+    </div>
+
+    <div class="phone" aria-label="Example WhatsApp conversation (illustration)">
+      <div class="screen">
+        <div class="chat-head"><div class="avatar">🧱</div><div><b>NirmanOS Agent</b><small>illustrative example</small></div></div>
+        <div class="chat">
+          <div class="msg me"><div class="photo">📒</div>Aaj ka diary page<span class="time">6:42 pm</span></div>
+          <div class="msg me"><div class="voice">▶️ <span class="wave"></span> 0:18</div><span class="time">6:43 pm</span></div>
+          <div class="msg bot sum">Page read ✅ Please check:<br>• Entries found: <b>listed below</b><br>• 1 line unclear — <span class="alert">please confirm</span><br>Reply <b>OK</b> to approve.<span class="time">6:44 pm</span></div>
+          <div class="msg me">OK 👍<span class="time">6:45 pm</span></div>
+          <div class="msg bot"><span class="hi">आज का सारांश तैयार है।</span> Original photo saved, unchanged. 📎<span class="time">6:45 pm</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PROBLEMS -->
+<section class="problems" id="problems">
+  <div class="wrap">
+    <span class="kicker">Problems we solve</span>
+    <h2>The problem isn't technology. It's lost paper, missing proof and too much trust.</h2>
+    <p class="lead">These are everyday problems for small business owners across India. We started with them — not with a product.</p>
+
+    <div class="grid g2">
+      <article class="card prob">
+        <div class="ico">📒</div>
+        <div class="who">Brick kiln (bhatta) owners</div>
+        <h3>The munshi's diary is the whole business — and it can disappear.</h3>
+        <ul>
+          <li>Diary gets wet, torn, or simply lost in the season rush.</li>
+          <li>Handwriting only the munshi can read.</li>
+          <li>Labour advances, bricks out, coal in — all mixed on one page.</li>
+          <li>When the munshi leaves, the hisaab leaves with him.</li>
+        </ul>
+        <p class="quote hi">"डायरी में सब लिखा था… पर अब मिल नहीं रही।"</p>
+        <p class="fix">→ Bhatta Munshi keeps a safe digital copy of every page.</p>
+      </article>
+
+      <article class="card prob">
+        <div class="ico">🚜</div>
+        <div class="who">JCB / excavator / machine rental owners</div>
+        <h3>Your machine worked 10 hours. You get paid for 7.</h3>
+        <ul>
+          <li>Hours are argued at billing time — your word vs. theirs.</li>
+          <li>Diesel goes missing and no one knows where.</li>
+          <li>Operator says one thing, site says another.</li>
+          <li>You only find out at month-end, when it's too late.</li>
+        </ul>
+        <p class="quote hi">"घंटे कम लिखे गए, डीज़ल ज़्यादा लगा — सबूत कुछ नहीं।"</p>
+        <p class="fix">→ Machine Hours Agent keeps hour-meter photo proof, every day.</p>
+      </article>
+
+      <article class="card prob">
+        <div class="ico">🧾</div>
+        <div class="who">Contractors</div>
+        <h3>Site money and receipts are buried in 20 WhatsApp chats.</h3>
+        <ul>
+          <li>Bills, UPI screenshots and "bhaiya, paisa bhejo" voice notes everywhere.</li>
+          <li>Nobody knows the real site expense until it's over budget.</li>
+          <li>Receipts lost before they reach the accounts book.</li>
+          <li>Hours spent scrolling back to find one payment.</li>
+        </ul>
+        <p class="quote hi">"पैसा गया कहाँ? पर्ची किसके फ़ोन में है?"</p>
+        <p class="fix">→ Contractor Site Office will put it in one place (coming later).</p>
+      </article>
+
+      <article class="card prob">
+        <div class="ico">🧍</div>
+        <div class="who">Every owner</div>
+        <h3>You can't be at the kiln, the machine and the site at the same time.</h3>
+        <ul>
+          <li>You run the business on phone calls and trust.</li>
+          <li>No proof of what actually happened today.</li>
+          <li>Problems reach you late — after the loss.</li>
+          <li>Every dispute ends with "aapko pata hai na…"</li>
+        </ul>
+        <p class="quote hi">"भरोसा है, पर सबूत नहीं है।"</p>
+        <p class="fix">→ A clean daily summary + alerts on your phone, with proof.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <span class="kicker">How it works</span>
+    <h2>Three simple steps. Nothing new to learn.</h2>
+    <p class="lead">Your munshi, operator or supervisor keeps doing what they already do on WhatsApp. The agent does the rest.</p>
+
+    <div class="grid g3">
+      <div class="card step"><span class="ico">📸</span><div class="num">1</div>
+        <h3>Send a photo or voice note</h3>
+        <p>Diary page, hour-meter reading, diesel slip, bill — or just speak in your own language, as you speak it. Send it on WhatsApp like any other message.</p></div>
+      <div class="card step"><span class="ico">🔍</span><div class="num">2</div>
+        <h3>AI reads it</h3>
+        <p>The agent reads handwriting, numbers and voice, and asks a simple question if anything is unclear. It does not guess.</p></div>
+      <div class="card step"><span class="ico">📊</span><div class="num">3</div>
+        <h3>Owner gets the summary</h3>
+        <p>A clean daily summary on WhatsApp, plus alerts when something looks wrong. You approve — then it becomes the record.</p></div>
+    </div>
+
+    <div class="principles">
+      <div class="princ"><b>🧮 Code calculates. AI only reads.</b>Totals, hours and balances are worked out by fixed rules in software — not "estimated" by AI.</div>
+      <div class="princ"><b>🗂️ Originals kept unchanged.</b>Every photo and voice note is stored as it was sent. The proof is never edited.</div>
+      <div class="princ"><b>✋ You approve everything.</b>Nothing becomes final, and nothing goes outside, until the owner says OK.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PRODUCTS -->
+<section id="products">
+  <div class="wrap">
+    <span class="kicker">Products</span>
+    <h2>One platform. Agents for each kind of work.</h2>
+    <p class="lead">We are early and honest about it. Here is exactly where each product stands today.</p>
+
+    <div class="grid g3">
+      <article class="card prod">
+        <div class="top"><span class="ico">🧱</span><span class="status s-pilot">In pilot</span></div>
+        <h3>Bhatta Munshi</h3>
+        <p class="hname hi">भट्ठा मुंशी — ईंट भट्ठे की डायरी</p>
+        <p>A WhatsApp diary agent for brick kilns. The munshi sends diary photos or voice notes; the owner gets a clean, searchable record.</p>
+        <ul>
+          <li>Diary page photos → digital record</li>
+          <li>Voice notes in your own language — designed to work in all Indian native languages and most dialects, as spoken</li>
+          <li>Daily summary for the owner</li>
+          <li>Original pages kept safe</li>
+        </ul>
+        <p class="foot">Phase 1 · being piloted at our own kiln first.</p>
+      </article>
+
+      <article class="card prod featured">
+        <div class="top"><span class="ico">🚜</span><span class="status s-live">Live pilot</span></div>
+        <h3>Machine Hours Agent</h3>
+        <p class="hname hi">मशीन घंटा हिसाब — JCB, पोकलेन, लोडर, ट्रैक्टर</p>
+        <p>Rental tracking for JCB, poclain, loader and tractor owners. Proof of every working hour and every litre of diesel.</p>
+        <ul>
+          <li>Operator sends hour-meter photos on WhatsApp</li>
+          <li>Diesel check against hours worked</li>
+          <li>Daily owner summary + alerts</li>
+          <li class="later">Broker / client billing — later</li>
+        </ul>
+        <p class="foot">Live at one site from October 2026.</p>
+      </article>
+
+      <article class="card prod">
+        <div class="top"><span class="ico">🏗️</span><span class="status s-soon">Coming soon</span></div>
+        <h3>Contractor Site Office</h3>
+        <p class="hname hi">ठेकेदार साइट ऑफिस</p>
+        <p>A multi-role WhatsApp site office — owner, supervisor, munshi and accounts, each with their own simple role.</p>
+        <ul>
+          <li class="later">Site expenses &amp; receipts in one place</li>
+          <li class="later">Labour and material entries</li>
+          <li class="later">Role-based access for the team</li>
+          <li class="later">Owner approval for every payment</li>
+        </ul>
+        <p class="foot">Planned after the current pilots.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. WHY UNIQUE -->
+<section class="unique" id="why">
+  <div class="wrap">
+    <span class="kicker">Why NirmanOS is different</span>
+    <h2>Built for how Bharat actually works.</h2>
+    <p class="lead">Most business software expects people to type into forms. Our users send photos and voice notes. So we built for that.</p>
+
+    <div class="grid g3">
+      <div class="u"><div class="ico">💬</div><h3>Works on WhatsApp</h3><p>No new app, no login, no training. If they can send a WhatsApp, they can use NirmanOS.</p></div>
+      <div class="u"><div class="ico">🎙️</div><h3>Voice + photo first</h3><p>Designed for low-literacy users. Speak or click a photo — no typing needed.</p></div>
+      <div class="u"><div class="ico"><span class="hi" style="font-weight:800">अ</span></div><h3>Your language, your dialect</h3><p>Designed to work in all Indian native languages and most dialects — talk the way you talk at the site, in your language as spoken. <span class="hi">"आज 8 घंटे चली"</span> works fine.</p></div>
+      <div class="u"><div class="ico">✋</div><h3>Owner approves everything</h3><p>A human — the owner — is always in control. The AI suggests; you decide.</p></div>
+      <div class="u"><div class="ico">📷</div><h3>Evidence stays original</h3><p>Photos and voice notes are never edited. When there's a dispute, the original proof is there.</p></div>
+      <div class="u"><div class="ico">🔒</div><h3>Private by default</h3><p>Internal records stay with you. Only the approved bill or hours are shared outside.</p></div>
+    </div>
+
+    <div class="vs">
+      <table>
+        <thead><tr><th></th><th>Usual way</th><th>With NirmanOS</th></tr></thead>
+        <tbody>
+          <tr><td>Record</td><td>Paper diary, one copy</td><td>Diary photo + clean digital copy</td></tr>
+          <tr><td>Machine hours</td><td>Verbal, argued later</td><td>Hour-meter photo every day</td></tr>
+          <tr><td>Proof</td><td>"Bharosa"</td><td>Original photo, unchanged</td></tr>
+          <tr><td>Owner view</td><td>Phone calls</td><td>Daily summary + alerts on WhatsApp</td></tr>
+          <tr><td>New software</td><td>Apps nobody opens</td><td>Just WhatsApp</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WHO -->
+<section id="who">
+  <div class="wrap">
+    <span class="kicker">Who it's for</span>
+    <h2>Made for owners across India.</h2>
+    <p class="lead">If your business runs on a diary, a phone and trust — this is for you.</p>
+
+    <div class="grid g3 who-grid">
+      <div class="card"><div class="ico">🧱</div><h3>Brick kiln owners</h3><span class="hi">ईंट भट्ठा मालिक</span><p>Keep the munshi's diary safe, readable and in your phone.</p></div>
+      <div class="card"><div class="ico">🚜</div><h3>Machine rental owners</h3><span class="hi">JCB / पोकलेन / ट्रैक्टर मालिक</span><p>Get paid for every hour your machine works. Watch diesel.</p></div>
+      <div class="card"><div class="ico">👷</div><h3>Contractors</h3><span class="hi">ठेकेदार</span><p>One place for site money, receipts and daily work.</p></div>
+    </div>
+
+    <p class="area"><span>📍 Across India</span><span>📍 Pilots starting in UP</span><span>📍 Your language &amp; dialect</span></p>
+
+    <div class="partners">
+      <h3>🤝 Partners &amp; investors</h3>
+      <p>NirmanOS is an early-stage company building WhatsApp-native tools for small businesses in rural India, starting with real pilots on the ground in UP. If you'd like to partner, pilot, or learn more, we'd be glad to talk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk — on WhatsApp, of course.</h2>
+    <p class="lead">Tell us about your kiln, machine or site. <span class="hi">बात कीजिए — अपनी भाषा में, जैसे आप बोलते हैं।</span></p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="https://wa.me/919140651230?text=Namaste%20NirmanOS%2C%20I%20want%20to%20know%20more" target="_blank" rel="noopener">💬 WhatsApp us</a>
+      <!-- TO CONFIRM: hello@nirman-os.in mailbox is set up in GoDaddy -->
+      <a class="btn btn-ghost" href="mailto:hello@nirman-os.in">✉️ hello@nirman-os.in</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>NirmanOS Enterprises</b><br>Udyam: UDYAM-UP-24-0062987<br>101, Anuj Bhawan, Kumarganj, Milkipur, Ayodhya, Uttar Pradesh 224229, India</div>
+    <div><a href="https://nirman-os.in">nirman-os.in</a> · <a href="mailto:hello@nirman-os.in">hello@nirman-os.in</a></div>
+    <div>© <span id="y">2026</span> NirmanOS. Made in India 🇮🇳</div>
+  </div>
+</footer>
+
+</body>
+</html>

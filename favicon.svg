@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NirmanOS · Bhatta Munshi logo">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#9a3412"/>
+  <rect x="14" y="12" width="30" height="40" rx="3" fill="#fff7ed"/>
+  <rect x="14" y="12" width="5" height="40" rx="2" fill="#fdba74"/>
+  <path d="M23 22h16M23 29h16M23 36h10" stroke="#9a3412" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="45" cy="45" r="11" fill="#16a34a" stroke="#fff7ed" stroke-width="3"/>
+  <path d="M40 45.5l3.6 3.6L50.5 42" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
