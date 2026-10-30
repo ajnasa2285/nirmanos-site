@@ -1,19 +1,36 @@
 {
   "schema": "urn:nirmanos:static-site-delivery:v1",
-  "createdAt": "2026-10-30T14:48:37.395929+00:00",
+  "createdAt": "2026-10-30T15:50:14.546275+00:00",
   "originalArchivePreserved": true,
   "originalArchiveSha256": "cbef939c638a4918d42fcaa2cc3e556f784dd71c089521e98244d94935d80b95",
   "integrityOnlyNotSignature": true,
+  "previousDeliveryPreserved": true,
+  "previousDeliverySha256": "e09f74ac27cbf634632ab258a328488a7754d08bcebbee7badfbede532298149",
   "files": [
     {
+      "path": "CNAME",
+      "bytes": 14,
+      "sha256": "6e86e936ecc4eea5faa0a48a378c55ca85d5f62797af49418555442029e42696"
+    },
+    {
       "path": "README.md",
-      "bytes": 6010,
-      "sha256": "ce5839243cea1a562bd2bcfc4173426af329087dba0884195b73a002b5a76b43"
+      "bytes": 7807,
+      "sha256": "254c53f6f5f9b9a40a53b8428c0f352253ba72a858a680e55c2e36e5dea98e6e"
     },
     {
       "path": "TEST-REPORT.json",
-      "bytes": 3108,
-      "sha256": "9ba2c61440c2aef69483ea7855526b009e4dcbeeeecff6ec561c1b2dd89641b4"
+      "bytes": 4091,
+      "sha256": "e32c6f98c95b1a289871438683c86a5b6ed0a1cf9a61613b1ec422b8edaa9cdf"
+    },
+    {
+      "path": "ai.css",
+      "bytes": 22596,
+      "sha256": "08fca9aac50eec8b36d17cea768b839cefbbe96773e78e841711f7707dbaf5c4"
+    },
+    {
+      "path": "ai.js",
+      "bytes": 14362,
+      "sha256": "e2cd35a0130de62a27e842de621b6772fbe97910d622c4040b422642d9a35ff5"
     },
     {
       "path": "app.js",
@@ -22,8 +39,8 @@
     },
     {
       "path": "data.js",
-      "bytes": 23553,
-      "sha256": "e5c9deb31fd7ebc966571d75dd4a209096057d86523493c0594a6bf81de3a45a"
+      "bytes": 42564,
+      "sha256": "ae7ac7d94a5bfc5ca1ffc4a5f8ae97b6b308e02713156252147f96084c5a8e37"
     },
     {
       "path": "favicon.svg",
@@ -32,8 +49,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 39645,
-      "sha256": "8bf9f750f7c21b101b4bdd9d7d67669c7a7713924f7dd00ceba3789463a4f872"
+      "bytes": 46666,
+      "sha256": "2b447177457520308965871651715446be1498d7907d008d9895f33d2925ab4b"
     },
     {
       "path": "logo.svg",
@@ -42,13 +59,13 @@
     },
     {
       "path": "og-image.png",
-      "bytes": 68686,
-      "sha256": "fd15b4d0473888e1b2b59a8b483a4bb16f626ced5900095f2ed5c27497ffed83"
+      "bytes": 251069,
+      "sha256": "3f6839f6670392f6284ee1caa20ca3d1ad3967c25e9705bf24a972f06dd8ec1b"
     },
     {
       "path": "og-image.svg",
-      "bytes": 1113,
-      "sha256": "76fc170ce57b6f1b24107bd3d744bea23ec1cad15584c230fc27c3e663ee2851"
+      "bytes": 2640,
+      "sha256": "7863135752756cd8c25ab51214668cd21f41e9d30e83b8755186f524d96fc37a"
     },
     {
       "path": "privacy.css",
@@ -57,8 +74,8 @@
     },
     {
       "path": "privacy.html",
-      "bytes": 18787,
-      "sha256": "6febc3508dd7a833a48c1a15fcbe936c748ac163e29846a078db0a888fb095d3"
+      "bytes": 19350,
+      "sha256": "bc575c78b9bfd90c5bf7682bfc056245455a3d6d7ef9bfbb34597a536ea5e273"
     },
     {
       "path": "privacy.js",
