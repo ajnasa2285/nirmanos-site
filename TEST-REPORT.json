@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-10-30T14:45:47.640Z",
+  "checks": [
+    "Desktop English renders with unique IDs, working local images, one H1 and no invented configured contact links",
+    "All seven business panels change correctly; keyboard Home, End and arrow navigation keep focus and selection aligned",
+    "English/Hindi translation is remembered after reload; explicit ?lang overrides the saved choice",
+    "All three job scenes enforce five steps, prevent future-step jumps, keep earlier review safe and export exact fictional separate-party records only after settlement",
+    "Evidence dialog traps keyboard focus, closes with Escape and restores its opener; job reset clears completion and disables exports",
+    "Bhatta diary calculates ₹500 discrepancy, retains originals while adding the missing expense, requires correction before approval and resets without a real ledger posting",
+    "Three-step setup brief validates priorities and town, preserves Back edits, renders input safely, copies through a stubbed clipboard API and downloads matching text without storage or submission",
+    "Brief reset clears answers and checked priorities; native dialog Escape remains available at mobile size",
+    "FAQ search filters matching questions, explains empty results, restores all nine questions and supports keyboard disclosure",
+    "Responsive layouts fit 1440px, 390px and 320px; mobile menu works with Enter/Escape and closes after navigation",
+    "Privacy page fits desktop/mobile in both languages, preserves language in Home links, and Forget saved language removes only its own preference",
+    "Offline file:// opening loads local images/scripts/styles, both languages, seven profiles, transaction and brief downloads, diary approval and privacy links without a server"
+  ],
+  "testedAssetHashes": {
+    "app.js": "910d684edf469f7480b1b3dd05e0401521ebda825f925ef0b7659589226107b8",
+    "data.js": "e5c9deb31fd7ebc966571d75dd4a209096057d86523493c0594a6bf81de3a45a",
+    "favicon.svg": "e7a8dc3c91bb91d92c3fe1fbd54fe853bd8784e1e4663fe7a35c0697ca1ec24b",
+    "index.html": "8bf9f750f7c21b101b4bdd9d7d67669c7a7713924f7dd00ceba3789463a4f872",
+    "logo.svg": "5f3151ff836248703e93c1bc86b97e342c364d9fdc8d62be9fb3a8fc9694e608",
+    "og-image.png": "fd15b4d0473888e1b2b59a8b483a4bb16f626ced5900095f2ed5c27497ffed83",
+    "og-image.svg": "76fc170ce57b6f1b24107bd3d744bea23ec1cad15584c230fc27c3e663ee2851",
+    "privacy.css": "4d63329817c0b3aec9da4e9835e2bcf5cbaf2f48558707706a2523ae0b77ae90",
+    "privacy.html": "6febc3508dd7a833a48c1a15fcbe936c748ac163e29846a078db0a888fb095d3",
+    "privacy.js": "a0b25be9e20db42b468d8c340782430cb6587a8ec7f431a72448b952c8eb9f25",
+    "style.css": "72717fca08636f3bc5ecfcb68c3353a3ab0a6637e4d698115df51b48a7363e97"
+  },
+  "harnessSha256": "ed9f6cd1e7d1ca9af78097805a1876704f1ee2bf4e8b204e4531a96b7b047f28",
+  "browserErrors": [],
+  "failedAssets": [],
+  "externalRequests": [],
+  "existingTabsAccessed": 0,
+  "liveAgentsContacted": 0,
+  "screenshotsCaptured": 19,
+  "originalArchiveSha256": "cbef939c638a4918d42fcaa2cc3e556f784dd71c089521e98244d94935d80b95"
+}

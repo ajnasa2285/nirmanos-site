@@ -1,0 +1,74 @@
+{
+  "schema": "urn:nirmanos:static-site-delivery:v1",
+  "createdAt": "2026-10-30T14:48:37.395929+00:00",
+  "originalArchivePreserved": true,
+  "originalArchiveSha256": "cbef939c638a4918d42fcaa2cc3e556f784dd71c089521e98244d94935d80b95",
+  "integrityOnlyNotSignature": true,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 6010,
+      "sha256": "ce5839243cea1a562bd2bcfc4173426af329087dba0884195b73a002b5a76b43"
+    },
+    {
+      "path": "TEST-REPORT.json",
+      "bytes": 3108,
+      "sha256": "9ba2c61440c2aef69483ea7855526b009e4dcbeeeecff6ec561c1b2dd89641b4"
+    },
+    {
+      "path": "app.js",
+      "bytes": 35580,
+      "sha256": "910d684edf469f7480b1b3dd05e0401521ebda825f925ef0b7659589226107b8"
+    },
+    {
+      "path": "data.js",
+      "bytes": 23553,
+      "sha256": "e5c9deb31fd7ebc966571d75dd4a209096057d86523493c0594a6bf81de3a45a"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 185,
+      "sha256": "e7a8dc3c91bb91d92c3fe1fbd54fe853bd8784e1e4663fe7a35c0697ca1ec24b"
+    },
+    {
+      "path": "index.html",
+      "bytes": 39645,
+      "sha256": "8bf9f750f7c21b101b4bdd9d7d67669c7a7713924f7dd00ceba3789463a4f872"
+    },
+    {
+      "path": "logo.svg",
+      "bytes": 240,
+      "sha256": "5f3151ff836248703e93c1bc86b97e342c364d9fdc8d62be9fb3a8fc9694e608"
+    },
+    {
+      "path": "og-image.png",
+      "bytes": 68686,
+      "sha256": "fd15b4d0473888e1b2b59a8b483a4bb16f626ced5900095f2ed5c27497ffed83"
+    },
+    {
+      "path": "og-image.svg",
+      "bytes": 1113,
+      "sha256": "76fc170ce57b6f1b24107bd3d744bea23ec1cad15584c230fc27c3e663ee2851"
+    },
+    {
+      "path": "privacy.css",
+      "bytes": 9667,
+      "sha256": "4d63329817c0b3aec9da4e9835e2bcf5cbaf2f48558707706a2523ae0b77ae90"
+    },
+    {
+      "path": "privacy.html",
+      "bytes": 18787,
+      "sha256": "6febc3508dd7a833a48c1a15fcbe936c748ac163e29846a078db0a888fb095d3"
+    },
+    {
+      "path": "privacy.js",
+      "bytes": 3254,
+      "sha256": "a0b25be9e20db42b468d8c340782430cb6587a8ec7f431a72448b952c8eb9f25"
+    },
+    {
+      "path": "style.css",
+      "bytes": 38184,
+      "sha256": "72717fca08636f3bc5ecfcb68c3353a3ab0a6637e4d698115df51b48a7363e97"
+    }
+  ]
+}
