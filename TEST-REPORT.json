@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-30T16:39:16.921Z",
+  "verifiedAt": "2026-10-30T17:43:35.659Z",
   "checks": [
     "Fresh homepage defaults to Hindi and renders unique IDs, working local images, one H1 and no invented configured contact links",
     "All seven business panels change correctly; keyboard Home, End and arrow navigation keep focus and selection aligned",
@@ -21,6 +21,7 @@
     "Technical page contains nine bilingual FAQs with exact unique IDs; English/Hindi searches, empty states and keyboard disclosure work, and long A2A/ledger answers fit desktop/mobile",
     "Privacy page fits desktop/mobile in both languages, preserves language in Home links, and Forget saved language removes only its own preference",
     "Offline file:// opening supports main and technical pages, both languages, seven profiles, transaction and brief downloads, diary approval, AI simulation, nine technical FAQs and privacy links without a server",
+    "Workflow demo has eight readable chapters, separate sample ledgers, an unchanged duplicate receipt, forged-signature rejection, human-owned mismatch decision, Hindi/English captions and 320px/390px responsive layouts",
     "With page scripts disabled, Hindi homepage copy and architecture remain visible and nine static technical FAQs remain readable; interactive controls are not claimed to work without JavaScript",
     "Main and technical pages load without overflow under documented 390px, 4× CPU and constrained-network emulation; request counts, body bytes and timing observations are recorded without claiming real-device performance"
   ],
@@ -37,22 +38,22 @@
         "uploadBytesPerSecond": 93750,
         "cacheDisabled": true
       },
-      "domContentLoadedMs": 3304.1000000089407,
-      "loadEventMs": 3380.1000000089407,
-      "responseEndMs": 725.5,
-      "documentBodyBytes": 49876,
-      "largestContentfulPaintMs": 1784,
+      "domContentLoadedMs": 1731.8999999910593,
+      "loadEventMs": 1774.7999999970198,
+      "responseEndMs": 541.8999999910593,
+      "documentBodyBytes": 50447,
+      "largestContentfulPaintMs": 1348,
       "cumulativeLayoutShift": 0,
-      "longTaskCount": 3,
-      "longTaskBlockingMs": 1426,
-      "observationWallMs": 4468,
+      "longTaskCount": 2,
+      "longTaskBlockingMs": 294,
+      "observationWallMs": 2879,
       "localRequestCount": 9,
-      "uncompressedResponseBodyBytes": 188363,
+      "uncompressedResponseBodyBytes": 188934,
       "localResponses": [
         {
           "path": "/index.html",
           "method": "GET",
-          "bodyBytes": 49876
+          "bodyBytes": 50447
         },
         {
           "path": "/style.css",
@@ -108,22 +109,22 @@
         "uploadBytesPerSecond": 93750,
         "cacheDisabled": true
       },
-      "domContentLoadedMs": 1392,
-      "loadEventMs": 1446.2999999970198,
-      "responseEndMs": 454,
-      "documentBodyBytes": 44185,
-      "largestContentfulPaintMs": 1304,
+      "domContentLoadedMs": 1281.3999999910593,
+      "loadEventMs": 1378.7999999970198,
+      "responseEndMs": 426.19999998807907,
+      "documentBodyBytes": 44216,
+      "largestContentfulPaintMs": 1200,
       "cumulativeLayoutShift": 0,
-      "longTaskCount": 1,
-      "longTaskBlockingMs": 81,
-      "observationWallMs": 2532,
+      "longTaskCount": 2,
+      "longTaskBlockingMs": 48,
+      "observationWallMs": 2530,
       "localRequestCount": 11,
-      "uncompressedResponseBodyBytes": 171278,
+      "uncompressedResponseBodyBytes": 171309,
       "localResponses": [
         {
           "path": "/technical.html",
           "method": "GET",
-          "bodyBytes": 44185
+          "bodyBytes": 44216
         },
         {
           "path": "/style.css",
@@ -176,6 +177,77 @@
           "bodyBytes": 185
         }
       ]
+    },
+    {
+      "page": "workflow.html",
+      "profile": {
+        "description": "Synthetic local Chromium mobile emulation; not a real device or production-network benchmark",
+        "viewportWidth": 390,
+        "viewportHeight": 844,
+        "cpuSlowdown": 4,
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "cacheDisabled": true
+      },
+      "domContentLoadedMs": 1105.5999999940395,
+      "loadEventMs": 1107.5999999940395,
+      "responseEndMs": 235.3999999910593,
+      "documentBodyBytes": 13782,
+      "largestContentfulPaintMs": 1076,
+      "cumulativeLayoutShift": 0,
+      "longTaskCount": 0,
+      "longTaskBlockingMs": 0,
+      "observationWallMs": 2153,
+      "localRequestCount": 9,
+      "uncompressedResponseBodyBytes": 119454,
+      "localResponses": [
+        {
+          "path": "/workflow.html",
+          "method": "GET",
+          "bodyBytes": 13782
+        },
+        {
+          "path": "/style.css",
+          "method": "GET",
+          "bodyBytes": 38184
+        },
+        {
+          "path": "/ai.css",
+          "method": "GET",
+          "bodyBytes": 22596
+        },
+        {
+          "path": "/workflow.css",
+          "method": "GET",
+          "bodyBytes": 2955
+        },
+        {
+          "path": "/polish.css",
+          "method": "GET",
+          "bodyBytes": 13103
+        },
+        {
+          "path": "/workflow-data.js",
+          "method": "GET",
+          "bodyBytes": 5911
+        },
+        {
+          "path": "/workflow.js",
+          "method": "GET",
+          "bodyBytes": 22498
+        },
+        {
+          "path": "/logo.svg",
+          "method": "GET",
+          "bodyBytes": 240
+        },
+        {
+          "path": "/favicon.svg",
+          "method": "GET",
+          "bodyBytes": 185
+        }
+      ]
     }
   ],
   "testedAssetHashes": {
@@ -185,7 +257,7 @@
     "CNAME": "6e86e936ecc4eea5faa0a48a378c55ca85d5f62797af49418555442029e42696",
     "data.js": "d60459eee0912912c33e7a60c57305b5fae186347636e7c8bec8f9b1282590c8",
     "favicon.svg": "e7a8dc3c91bb91d92c3fe1fbd54fe853bd8784e1e4663fe7a35c0697ca1ec24b",
-    "index.html": "feaed3c3f59cfbc648b00a79d43a4cdc50abf2e5751d1468b68b98c717331070",
+    "index.html": "711947bc49faafa7fecf3ddbe867d198ca4c177212a121844b2c5e102051225e",
     "logo.svg": "5f3151ff836248703e93c1bc86b97e342c364d9fdc8d62be9fb3a8fc9694e608",
     "og-image.png": "79b9518d13656fdbb9aff41705ff7489417b482b5f655b06c024901d91e2fbb7",
     "og-image.svg": "39ae395f96232edd6f003cd91a6f3dc46e97e60ede86700cacdf6ac8eedfdd69",
@@ -197,16 +269,20 @@
     "style.css": "72717fca08636f3bc5ecfcb68c3353a3ab0a6637e4d698115df51b48a7363e97",
     "technical-data.js": "ca2d48f45fc5a9d65b7f1d2fa179313635ee38c0e3488fa80c80ab1c824b11f1",
     "technical.css": "5ecd030d86ce9997f5f9646ebd825eaa4ad6bdfd8eb3e371d991ed83e0c985f9",
-    "technical.html": "a4c535628940b92b9dcfafefd5ec2f0531d4dc0ed76e9ac0763b6aaac92b0b09",
-    "technical.js": "06f9ae7108fddb42e482e38991488db99b6d38fb665df26a3755afc4ddf67f91"
+    "technical.html": "00f0cce858e4c0942340bcfe37e09e050cc5522d76f91486d469b896fed7ce5a",
+    "technical.js": "06f9ae7108fddb42e482e38991488db99b6d38fb665df26a3755afc4ddf67f91",
+    "workflow-data.js": "d463d4e9805060050898cda64bdd9e7189a438647ab93093e2de37e19dd9e9b5",
+    "workflow.css": "1e185b0c2f01c4b52368c08d44366a20dd579270284102f76f74f7ef85eae099",
+    "workflow.html": "ef01cad60cc1ac57d1688f9a594d68accae4dee3502819b773fa002b103b97c9",
+    "workflow.js": "f2ebad9f5fbb69a3f4e771381bcef20f057af371b5a0ce988c89086d9acecbd8"
   },
-  "harnessSha256": "2cb68be578e0a631ff55cb7467edef62e016d798e51e7e3d823b1d64bb33e635",
+  "harnessSha256": "c6b33e923e04ac961392a9ad875fb9cf882a86ea5007bec215e2cb5cb1e8e4ec",
   "browserErrors": [],
   "failedAssets": [],
   "externalRequests": [],
   "existingTabsAccessed": 0,
   "liveAgentsContacted": 0,
-  "screenshotsCaptured": 49,
+  "screenshotsCaptured": 53,
   "originalArchiveSha256": "cbef939c638a4918d42fcaa2cc3e556f784dd71c089521e98244d94935d80b95",
   "previousDeliverySha256": "e09f74ac27cbf634632ab258a328488a7754d08bcebbee7badfbede532298149",
   "previousAiDeliverySha256": "a768006e418aa48bb07accacd43e9dcbd952f5142c2dbdaf59800e286368059e"

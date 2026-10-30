@@ -1,6 +1,6 @@
 {
   "schema": "urn:nirmanos:static-site-delivery:v1",
-  "createdAt": "2026-10-30T16:40:05.933653+00:00",
+  "createdAt": "2026-10-30T17:43:44.380750+00:00",
   "originalArchivePreserved": true,
   "originalArchiveSha256": "cbef939c638a4918d42fcaa2cc3e556f784dd71c089521e98244d94935d80b95",
   "integrityOnlyNotSignature": true,
@@ -16,13 +16,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 9502,
-      "sha256": "33eb2c81ac1cf94985899943a35f6c26ae0a01da53b3f936663088ed13229f35"
+      "bytes": 12374,
+      "sha256": "8effa213cc388d1f583bf2e3afaabc6604d71dce6989310047ff995e99fe68cd"
     },
     {
       "path": "TEST-REPORT.json",
-      "bytes": 9749,
-      "sha256": "c6e3796208129dc97e887216b0e0e8a1cb64a237ab3e541e0220e59d7fa3dbff"
+      "bytes": 12213,
+      "sha256": "ad64a2416777fe413cabf7c459a73ae39111f7ee8f68f50d2f4c7954ffb79e42"
     },
     {
       "path": "ai.css",
@@ -51,8 +51,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 49876,
-      "sha256": "feaed3c3f59cfbc648b00a79d43a4cdc50abf2e5751d1468b68b98c717331070"
+      "bytes": 50426,
+      "sha256": "e576890d95192e0468add8f2c0303e2d1f5b40de7244cc7164fc3975e84c32ff"
     },
     {
       "path": "logo.svg",
@@ -111,13 +111,33 @@
     },
     {
       "path": "technical.html",
-      "bytes": 44185,
-      "sha256": "a4c535628940b92b9dcfafefd5ec2f0531d4dc0ed76e9ac0763b6aaac92b0b09"
+      "bytes": 44216,
+      "sha256": "00f0cce858e4c0942340bcfe37e09e050cc5522d76f91486d469b896fed7ce5a"
     },
     {
       "path": "technical.js",
       "bytes": 4990,
       "sha256": "06f9ae7108fddb42e482e38991488db99b6d38fb665df26a3755afc4ddf67f91"
+    },
+    {
+      "path": "workflow-data.js",
+      "bytes": 12766,
+      "sha256": "c2190b676ecab623e597edd18fc069541a285688a541f8855b484f3e3eae2eca"
+    },
+    {
+      "path": "workflow.css",
+      "bytes": 2932,
+      "sha256": "027b743c0ea478399b7cd27655bdf6becc5a3dc1f54a17cad225008e02211396"
+    },
+    {
+      "path": "workflow.html",
+      "bytes": 13714,
+      "sha256": "2c96c2a33b1214b9fa76d5087711a5fbdadf5b43a30a653e683bdc9ce4d8cc6a"
+    },
+    {
+      "path": "workflow.js",
+      "bytes": 21686,
+      "sha256": "ab02c726729f72daf27f94209b3c1c8971d121e500a9c105000bc5d73e718dfd"
     }
   ]
 }
