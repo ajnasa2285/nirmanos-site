@@ -4,7 +4,7 @@
   if (!data) return;
   const $ = id => document.getElementById(id);
   const all = selector => Array.from(document.querySelectorAll(selector));
-  const state = { language: 'en', business: 'brick_kiln', scenario: data.scenarios[0].id, reached: 0, viewed: 0, corrected: false, diaryApproved: false, briefStep: 0, briefStarted: false, evidence: null };
+  const state = { language: 'hi', business: 'brick_kiln', scenario: data.scenarios[0].id, reached: 0, viewed: 0, corrected: false, diaryApproved: false, briefStep: 0, briefStarted: false, evidence: null };
   const text = value => typeof value === 'string' ? value : value[state.language];
   const tr = (en, hi) => state.language === 'hi' ? hi : en;
   const money = paise => new Intl.NumberFormat(state.language === 'hi' ? 'hi-IN' : 'en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: paise % 100 ? 2 : 0, maximumFractionDigits: 2 }).format(paise / 100);
@@ -87,7 +87,7 @@
     const features = el('ul', 'check-list');
     business.features.forEach(feature => { const li = el('li'); li.append(icon('check'), el('span', '', text(feature))); features.append(li); });
     copy.append(features);
-    const setup = button(tr('Plan this business setup', 'इस कारोबार का सेटअप बनाएँ'), 'button button-dark', () => openBrief()); copy.append(setup);
+    const setup = button(tr('Plan this business setup', 'इस कारोबार की योजना बनाएँ'), 'button button-dark', () => openBrief()); copy.append(setup);
     const links = el('div', 'profile-links');
     links.append(el('p', 'eyebrow', tr('Part of the same working network', 'एक-दूसरे के काम आने वाला नेटवर्क')),
       el('h4', '', tr('Your next job connects here.', 'अगला काम इनसे जुड़ता है।')),
@@ -307,13 +307,16 @@
     for (const [id, labels] of Object.entries({ 'business-tabs': ['Business types', 'कारोबार के प्रकार'], 'job-steps': ['Sample job progress', 'नमूना काम की प्रगति'], 'job-progressbar': ['Sample job completion', 'नमूना काम कितना पूरा हुआ'], 'mobile-nav': ['Mobile navigation', 'मोबाइल मेन्यू'] })) $(id)?.setAttribute('aria-label', tr(...labels));
     $('menu-toggle')?.setAttribute('aria-label', $('mobile-nav')?.hidden ? tr('Open menu', 'मेन्यू खोलें') : tr('Close menu', 'मेन्यू बंद करें'));
     all('[data-close-dialog]').forEach(node => node.setAttribute('aria-label', tr('Close dialog', 'विंडो बंद करें')));
-    all('a[href^="privacy.html"]').forEach(node => { node.href = 'privacy.html?lang=' + state.language; });
-    document.title = tr('NirmanOS — Businesses connected. Books kept clear.', 'NirmanOS — कारोबार जुड़े रहें। हिसाब साफ़ रहे।');
+    all('a[href^="privacy.html"], a[href^="technical.html"]').forEach(node => {
+      const url = new URL(node.getAttribute('href'), window.location.href); url.searchParams.set('lang', state.language);
+      node.setAttribute('href', url.pathname.split('/').at(-1) + url.search + url.hash);
+    });
+    document.title = tr('NirmanOS — Your business’s own munshi, on WhatsApp · Coming soon', 'NirmanOS — आपके कारोबार का अपना मुंशी, WhatsApp पर · जल्द आ रहा है');
     renderBusinesses(); renderJob(); renderDiary(); populateBriefBusinesses(); renderBrief(); renderFaq(); if ($('evidence-dialog')?.open) renderEvidenceDialog();
     setText('brief-error', ''); setText('brief-status', ''); setText('demo-status', ''); setText('toast', '');
   }
   all('[data-set-lang]').forEach(node => node.addEventListener('click', () => setLanguage(node.dataset.setLang)));
-  let language = 'en';
+  let language = 'hi';
   try { const saved = localStorage.getItem('nirmanos-language'); if (['en', 'hi'].includes(saved)) language = saved; } catch { /* Optional preference. */ }
   const queryLanguage = new URLSearchParams(window.location.search).get('lang'); if (['en', 'hi'].includes(queryLanguage)) language = queryLanguage;
   setLanguage(language);

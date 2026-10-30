@@ -4,7 +4,7 @@
   const root = document.documentElement;
   const toggle = document.getElementById('lang-toggle');
   const status = document.getElementById('preference-status');
-  let language = 'en';
+  let language = 'hi';
   let preferenceResult = null;
 
   function savedLanguage() {
@@ -32,6 +32,11 @@
       link.href = `index.html?lang=${language}`;
       if (link.classList.contains('brand')) link.setAttribute('aria-label', language === 'hi' ? 'NirmanOS होम' : 'NirmanOS home');
     });
+    document.querySelectorAll('a[href^="technical.html"], a[href^="privacy.html"]').forEach(link => {
+      const url = new URL(link.getAttribute('href'), location.href);
+      url.searchParams.set('lang', language);
+      link.setAttribute('href', url.pathname.split('/').at(-1) + url.search + url.hash);
+    });
     if (persist) {
       try { localStorage.setItem(preferenceKey, language); } catch { /* Language works without persistent storage. */ }
       preferenceResult = null;
@@ -46,7 +51,7 @@
 
   const requested = new URLSearchParams(location.search).get('lang');
   const remembered = savedLanguage();
-  setLanguage(['en', 'hi'].includes(requested) ? requested : ['en', 'hi'].includes(remembered) ? remembered : 'en');
+  setLanguage(['en', 'hi'].includes(requested) ? requested : ['en', 'hi'].includes(remembered) ? remembered : 'hi');
   toggle.addEventListener('click', () => setLanguage(language === 'en' ? 'hi' : 'en', true));
   document.getElementById('forget-language').addEventListener('click', () => {
     try {

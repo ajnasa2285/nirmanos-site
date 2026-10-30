@@ -1,46 +1,213 @@
 {
-  "verifiedAt": "2026-10-30T15:48:58.074Z",
+  "verifiedAt": "2026-10-30T16:39:16.921Z",
   "checks": [
-    "Desktop English renders with unique IDs, working local images, one H1 and no invented configured contact links",
+    "Fresh homepage defaults to Hindi and renders unique IDs, working local images, one H1 and no invented configured contact links",
     "All seven business panels change correctly; keyboard Home, End and arrow navigation keep focus and selection aligned",
     "English/Hindi translation is remembered after reload; explicit ?lang overrides the saved choice",
-    "All three AI scenarios run through four visible stages and pause for owner approval; keyboard start, disabled running control, replay availability and locale changes preserve stage state",
-    "AI reset and scenario changes cancel prior timers without stale results; the simulation adds no storage keys",
-    "Reduced-motion preference shows the completed AI approval pause immediately and stops decorative animation on desktop and 320px layouts",
-    "All three job scenes enforce five steps, prevent future-step jumps, keep earlier review safe and export exact fictional separate-party records only after settlement",
+    "The 50-versus-48 illustration identifies two bags, preserves its state across languages and resets without changing the sample job or diary",
+    "Fine-pointer spotlight updates through animation frames; leaving, reduced-motion changes and coarse-pointer conditions disable the effect without changing controls",
+    "Scroll navigation marks one current section across language and viewport changes; reduced motion leaves reveal content visible and keyboard focus has a visible outline",
+    "The visible job and two retained scenarios (selected programmatically) enforce five steps, prevent future-step jumps, preserve review and export exact fictional separate-party records only after settlement",
     "Evidence dialog traps keyboard focus, closes with Escape and restores its opener; job reset clears completion and disables exports",
     "Bhatta diary calculates ₹500 discrepancy, retains originals while adding the missing expense, requires correction before approval and resets without a real ledger posting",
     "Three-step setup brief validates priorities and town, preserves Back edits, renders input safely, copies through a stubbed clipboard API and downloads matching text without storage or submission",
     "Brief reset clears answers and checked priorities; native dialog Escape remains available at mobile size",
-    "FAQ search filters matching questions, explains empty results, restores all 18 questions and supports keyboard disclosure",
-    "All nine added technical FAQs have unique IDs and English/Hindi answers; orchestration, idempotency and OCR searches work, and expanded A2A/ledger answers fit desktop and 320px screens",
+    "FAQ search filters matching questions, explains empty results, restores all 6 questions and supports keyboard disclosure",
     "Responsive layouts fit 1440px, 390px and 320px; mobile menu works with Enter/Escape and closes after navigation",
+    "Technical page defaults to Hindi, remembers explicit English and preserves the selected language on actual homepage/technical round-trip links",
+    "All three AI scenarios run through four visible stages and pause for owner approval; keyboard start, disabled running control, replay availability and locale changes preserve stage state",
+    "AI reset and scenario changes cancel prior timers without stale results; the simulation adds no storage keys",
+    "Reduced-motion preference shows the completed AI approval pause immediately and stops decorative animation on desktop and 320px layouts",
+    "Technical page contains nine bilingual FAQs with exact unique IDs; English/Hindi searches, empty states and keyboard disclosure work, and long A2A/ledger answers fit desktop/mobile",
     "Privacy page fits desktop/mobile in both languages, preserves language in Home links, and Forget saved language removes only its own preference",
-    "Offline file:// opening loads local images/scripts/styles, both languages, seven profiles, transaction and brief downloads, diary approval and privacy links without a server"
+    "Offline file:// opening supports main and technical pages, both languages, seven profiles, transaction and brief downloads, diary approval, AI simulation, nine technical FAQs and privacy links without a server",
+    "With page scripts disabled, Hindi homepage copy and architecture remain visible and nine static technical FAQs remain readable; interactive controls are not claimed to work without JavaScript",
+    "Main and technical pages load without overflow under documented 390px, 4× CPU and constrained-network emulation; request counts, body bytes and timing observations are recorded without claiming real-device performance"
+  ],
+  "measurements": [
+    {
+      "page": "index.html",
+      "profile": {
+        "description": "Synthetic local Chromium mobile emulation; not a real device or production-network benchmark",
+        "viewportWidth": 390,
+        "viewportHeight": 844,
+        "cpuSlowdown": 4,
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "cacheDisabled": true
+      },
+      "domContentLoadedMs": 3304.1000000089407,
+      "loadEventMs": 3380.1000000089407,
+      "responseEndMs": 725.5,
+      "documentBodyBytes": 49876,
+      "largestContentfulPaintMs": 1784,
+      "cumulativeLayoutShift": 0,
+      "longTaskCount": 3,
+      "longTaskBlockingMs": 1426,
+      "observationWallMs": 4468,
+      "localRequestCount": 9,
+      "uncompressedResponseBodyBytes": 188363,
+      "localResponses": [
+        {
+          "path": "/index.html",
+          "method": "GET",
+          "bodyBytes": 49876
+        },
+        {
+          "path": "/style.css",
+          "method": "GET",
+          "bodyBytes": 38184
+        },
+        {
+          "path": "/ai.css",
+          "method": "GET",
+          "bodyBytes": 22596
+        },
+        {
+          "path": "/polish.css",
+          "method": "GET",
+          "bodyBytes": 13103
+        },
+        {
+          "path": "/data.js",
+          "method": "GET",
+          "bodyBytes": 21622
+        },
+        {
+          "path": "/app.js",
+          "method": "GET",
+          "bodyBytes": 35817
+        },
+        {
+          "path": "/polish.js",
+          "method": "GET",
+          "bodyBytes": 6740
+        },
+        {
+          "path": "/logo.svg",
+          "method": "GET",
+          "bodyBytes": 240
+        },
+        {
+          "path": "/favicon.svg",
+          "method": "GET",
+          "bodyBytes": 185
+        }
+      ]
+    },
+    {
+      "page": "technical.html",
+      "profile": {
+        "description": "Synthetic local Chromium mobile emulation; not a real device or production-network benchmark",
+        "viewportWidth": 390,
+        "viewportHeight": 844,
+        "cpuSlowdown": 4,
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "cacheDisabled": true
+      },
+      "domContentLoadedMs": 1392,
+      "loadEventMs": 1446.2999999970198,
+      "responseEndMs": 454,
+      "documentBodyBytes": 44185,
+      "largestContentfulPaintMs": 1304,
+      "cumulativeLayoutShift": 0,
+      "longTaskCount": 1,
+      "longTaskBlockingMs": 81,
+      "observationWallMs": 2532,
+      "localRequestCount": 11,
+      "uncompressedResponseBodyBytes": 171278,
+      "localResponses": [
+        {
+          "path": "/technical.html",
+          "method": "GET",
+          "bodyBytes": 44185
+        },
+        {
+          "path": "/style.css",
+          "method": "GET",
+          "bodyBytes": 38184
+        },
+        {
+          "path": "/ai.css",
+          "method": "GET",
+          "bodyBytes": 22596
+        },
+        {
+          "path": "/technical.css",
+          "method": "GET",
+          "bodyBytes": 6920
+        },
+        {
+          "path": "/polish.css",
+          "method": "GET",
+          "bodyBytes": 13103
+        },
+        {
+          "path": "/technical-data.js",
+          "method": "GET",
+          "bodyBytes": 19773
+        },
+        {
+          "path": "/technical.js",
+          "method": "GET",
+          "bodyBytes": 4990
+        },
+        {
+          "path": "/ai.js",
+          "method": "GET",
+          "bodyBytes": 14362
+        },
+        {
+          "path": "/polish.js",
+          "method": "GET",
+          "bodyBytes": 6740
+        },
+        {
+          "path": "/logo.svg",
+          "method": "GET",
+          "bodyBytes": 240
+        },
+        {
+          "path": "/favicon.svg",
+          "method": "GET",
+          "bodyBytes": 185
+        }
+      ]
+    }
   ],
   "testedAssetHashes": {
     "ai.css": "08fca9aac50eec8b36d17cea768b839cefbbe96773e78e841711f7707dbaf5c4",
     "ai.js": "e2cd35a0130de62a27e842de621b6772fbe97910d622c4040b422642d9a35ff5",
-    "app.js": "910d684edf469f7480b1b3dd05e0401521ebda825f925ef0b7659589226107b8",
+    "app.js": "5ee3f77fed33b1512a67cb3aeaa2c03a6f2ecba814c94fb1d9ea9a6426f908fb",
     "CNAME": "6e86e936ecc4eea5faa0a48a378c55ca85d5f62797af49418555442029e42696",
-    "data.js": "ae7ac7d94a5bfc5ca1ffc4a5f8ae97b6b308e02713156252147f96084c5a8e37",
+    "data.js": "d60459eee0912912c33e7a60c57305b5fae186347636e7c8bec8f9b1282590c8",
     "favicon.svg": "e7a8dc3c91bb91d92c3fe1fbd54fe853bd8784e1e4663fe7a35c0697ca1ec24b",
-    "index.html": "2b447177457520308965871651715446be1498d7907d008d9895f33d2925ab4b",
+    "index.html": "feaed3c3f59cfbc648b00a79d43a4cdc50abf2e5751d1468b68b98c717331070",
     "logo.svg": "5f3151ff836248703e93c1bc86b97e342c364d9fdc8d62be9fb3a8fc9694e608",
-    "og-image.png": "3f6839f6670392f6284ee1caa20ca3d1ad3967c25e9705bf24a972f06dd8ec1b",
-    "og-image.svg": "7863135752756cd8c25ab51214668cd21f41e9d30e83b8755186f524d96fc37a",
+    "og-image.png": "79b9518d13656fdbb9aff41705ff7489417b482b5f655b06c024901d91e2fbb7",
+    "og-image.svg": "39ae395f96232edd6f003cd91a6f3dc46e97e60ede86700cacdf6ac8eedfdd69",
+    "polish.css": "84ecae26ce5541391f6c25076953b04f058e32380b2295320a4f5308ad3fab4d",
+    "polish.js": "8f8fa7bbf77e375af99362569e4bf9478648ab241b86221f3cfd981794943c98",
     "privacy.css": "4d63329817c0b3aec9da4e9835e2bcf5cbaf2f48558707706a2523ae0b77ae90",
-    "privacy.html": "bc575c78b9bfd90c5bf7682bfc056245455a3d6d7ef9bfbb34597a536ea5e273",
-    "privacy.js": "a0b25be9e20db42b468d8c340782430cb6587a8ec7f431a72448b952c8eb9f25",
-    "style.css": "72717fca08636f3bc5ecfcb68c3353a3ab0a6637e4d698115df51b48a7363e97"
+    "privacy.html": "4e4e6061762806cac77a853dd6da62b1bc013b16d2d1c82aba69f191385fd7e3",
+    "privacy.js": "12a2254b63009c15e2d6bd70895a1a9eb3c756795fbda8b5997710b080e9f304",
+    "style.css": "72717fca08636f3bc5ecfcb68c3353a3ab0a6637e4d698115df51b48a7363e97",
+    "technical-data.js": "ca2d48f45fc5a9d65b7f1d2fa179313635ee38c0e3488fa80c80ab1c824b11f1",
+    "technical.css": "5ecd030d86ce9997f5f9646ebd825eaa4ad6bdfd8eb3e371d991ed83e0c985f9",
+    "technical.html": "a4c535628940b92b9dcfafefd5ec2f0531d4dc0ed76e9ac0763b6aaac92b0b09",
+    "technical.js": "06f9ae7108fddb42e482e38991488db99b6d38fb665df26a3755afc4ddf67f91"
   },
-  "harnessSha256": "6765c5dacf7d98119e53d24d0d1e5799ba73c301916b71c685b7520a58353846",
+  "harnessSha256": "2cb68be578e0a631ff55cb7467edef62e016d798e51e7e3d823b1d64bb33e635",
   "browserErrors": [],
   "failedAssets": [],
   "externalRequests": [],
   "existingTabsAccessed": 0,
   "liveAgentsContacted": 0,
-  "screenshotsCaptured": 33,
+  "screenshotsCaptured": 49,
   "originalArchiveSha256": "cbef939c638a4918d42fcaa2cc3e556f784dd71c089521e98244d94935d80b95",
-  "previousDeliverySha256": "e09f74ac27cbf634632ab258a328488a7754d08bcebbee7badfbede532298149"
+  "previousDeliverySha256": "e09f74ac27cbf634632ab258a328488a7754d08bcebbee7badfbede532298149",
+  "previousAiDeliverySha256": "a768006e418aa48bb07accacd43e9dcbd952f5142c2dbdaf59800e286368059e"
 }
